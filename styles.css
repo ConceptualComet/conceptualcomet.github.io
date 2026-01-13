@@ -1,0 +1,141 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+ 
+  }
+  .space-object {
+    display: none;
+  }
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrolling entirely */
+}
+
+/* Base container */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Tiled background layers (nebula, stars) */
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat;
+}
+
+.nebula {
+  background-image: url('/images/blue-back.png');
+  background-size: cover;
+  animation: scroll 300s linear infinite;
+}
+
+.stars {
+  background-image: url('/images/blue-stars.png');
+  background-size: cover;
+  animation: scroll 200s linear infinite;
+}
+
+/* Individual objects (planets, asteroids) */
+.space-object {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: float linear infinite;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.planet-big {
+  background-image: url('/images/prop-planet-big.png'); 
+  width: 20vw; /* scales with viewport width */
+  height: 20vw;
+  min-width: 600px; /* prevents them from getting too small on mobile */
+  max-width: 1000px; /* prevents them from getting huge on large screens */
+}
+
+.planet-small {
+  background-image: url('/images/prop-planet-small.png'); 
+  width: 8vw;
+  height: 8vw;
+  min-width: 60px;
+  max-width: 200px;
+}
+
+.asteroid-1 {
+  background-image: url('/images/asteroid-1.png'); 
+  width: 6vw; 
+  height: 6vw;
+  min-width: 60px; 
+  max-width: 120px; 
+  animation: rotate linear infinite; 
+}
+
+.asteroid-2 {
+  background-image: url('/images/asteroid-2.png'); 
+  width: 4vw;
+  height: 4vw;
+  min-width: 30px;
+  max-width: 90px;
+  animation: rotate linear infinite;
+}
+
+.asteroid-3 {
+  background-image: url('/images/asteroid-2.png'); 
+  width: 2vw;
+  height: 2vw;
+  min-width: 30px;
+  max-width: 90px;
+  animation: rotate-reverse linear infinite;
+}
+
+/* Animation */
+@keyframes scroll {
+  from { background-position: 0 0; }
+  to { background-position: -2000px 0; }
+}
+
+@keyframes float {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-1050px); }
+}
+
+
+@keyframes rotate {
+  from { transform: translateX(100vw) rotate(0deg); }
+  to { transform: translateX(-1050px) rotate(360deg); }
+}
+
+
+@keyframes rotate-reverse {
+  from { transform: translateX(100vw) rotate(0deg); }
+  to { transform: translateX(-1050px) rotate(-360deg); }
+}
+
+/* Notebooks */
+.splash-notebooks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 90vh;
+}
+
+.splash-notebooks img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform: translateX(8%);
+}
