@@ -15,7 +15,7 @@ body, html {
   overflow: hidden; /* Prevents scrolling entirely */
 }
 
-/* Base container */
+/* Background base container */
 .parallax-bg {
   position: fixed;
   top: 0;
@@ -126,8 +126,8 @@ body, html {
   to { transform: translateX(-1050px) rotate(-360deg); }
 }
 
-/* Notebooks */
-.splash-notebooks {
+/* Folder */
+.folder {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,9 +135,8 @@ body, html {
   height: 90vh;
 }
 
-.splash-notebooks img {
+.folder img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transform: translateX(8%);
 }
