@@ -133,32 +133,32 @@ body {
   to { transform: translateX(-1050px) rotate(-360deg); }
 }
 
-/* Folder */
-.folder {
+/* Content Layer */
+.page-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('/img/folder.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+/* Folder */
+.folder {
+  z-index: 1;
+  background-image: url('/img/folder.png');
 }
 
 /* Astronaut Sticker */
 .astronaut-sticker {
-  width: 100vw;
-  height: 100vh;
+  z-index: 2;
   background-image: url('/img/astronaut.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
-/*Monitor Sticker */
+/* Monitor Sticker */
 .monitor-sticker {
-  width: 100vw;
-  height: 100vh;
+  z-index: 3;
   background-image: url('/img/monitor.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
