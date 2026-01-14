@@ -150,5 +150,5 @@ body {
   background-image: url('/img/astronaut.png');
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100%;
 }
