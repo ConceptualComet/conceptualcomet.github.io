@@ -228,3 +228,39 @@ body {
   z-index: 14;
   background-image: url('/img/astronaut.png');
 }
+
+/* About */
+.about {
+ z-index: 15;
+ background-image: url('/img/about.png');
+}
+
+/* Earthrise */
+.earthrise {
+ z-index: 17;
+ background-image: url('/img/earthrise.png');
+}
+
+/* Links */
+.links {
+ z-index: 18;
+ background-image: url('/img/links.png');
+}
+
+/* Now */
+.now {
+ z-index: 19;
+ background-image: url('/img/now.png');
+}
+
+/* Sunita */
+.sunita {
+ z-index: 20;
+ background-image: url('/img/now.png');
+}
+
+/* Be Kind */
+.be-kind {
+ z-index: 21;
+ background-image: url('/img/be-kind.png');
+}
