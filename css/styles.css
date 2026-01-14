@@ -151,80 +151,80 @@ body {
   background-image: url('/img/folder.png');
 }
 
-/* Astronaut Sticker */
-.astronaut-sticker {
-  z-index: 2;
-  background-image: url('/img/astronaut.png');
-}
-
 /* Monitor Sticker */
 .monitor-sticker {
-  z-index: 3;
+  z-index: 2;
   background-image: url('/img/monitor.png');
 }
 
 /* Binder Clip */
 .binder-clip{
-  z-index: 4;
+  z-index: 3;
   background-image: url('/img/binder-clip.png');
 }
 
 /* Scrap */
 .scrap {
-  z-index: 5;
+  z-index: 4;
   background-image: url(/img/scrap.png);
 }
 
 /* Curriculum */
 .curriculum {
-  z-index: 6;
+  z-index: 5;
   background-image: url(/img/curriculum.png);
 }
 
 /* Busts */
 .busts {
-  z-index: 7;
+  z-index: 6;
   background-image: url(/img/busts.png);
 }
 
 /* Shrines */
 .shrines {
-  z-index: 8;
+  z-index: 7;
   background-image: url(/img/shrines.png);
 }
 
 /* TV */
 .tv {
-  z-index: 9;
+  z-index: 8;
   background-image: url(/img/tv.png);
 }
 
 /* Express Yourself */
 .express-yourself {
-  z-index: 10;
+  z-index: 9;
   background-image: url(/img/express-yourself.png);
 }
 
 /* Blog/Home */
 .bloghome {
-  z-index: 11;
+  z-index: 10;
   background-image: url(/img/bloghome.png);
 }
 
 /* Perihelion */
 .perihelion {
-  z-index: 12;
+  z-index: 11;
   background-image: url(/img/perihelion.png);
 }
 
 /* Gemini Patch */
 .gemini-patch {
-  z-index: 13;
+  z-index: 12;
   background-image: url(/img/gemini-patch.png);
 }
 
 /* Splash */
 .splash {
-  z-index: 14;
+  z-index: 13;
   background-image: url(/img/splash.png);
+}
+
+/* Astronaut Sticker */
+.astronaut-sticker {
+  z-index: 14;
+  background-image: url('/img/astronaut.png');
 }
