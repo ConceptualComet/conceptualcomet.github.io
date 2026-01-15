@@ -300,18 +300,19 @@ body {
   transform: translate(-50%, -50%) rotateZ(-9deg) skewY(-1deg);
   text-align: center;
   width: 20%;
+  container-type: inline-size;
 }
 
 .splash-text h1 {
   font-family: "Kolker Brush", cursive;
-  font-size: 2rem;
+  font-size: 15cqw;
   color: #2a3a4a;
   margin: 0.5em 0;
 }
 
 .splash-text p {
   font-family: serif;
-  font-size: 0.9rem;
+  font-size: 5cqw;
   color: #444;
 }
 
