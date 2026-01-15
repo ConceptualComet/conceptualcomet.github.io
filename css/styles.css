@@ -295,7 +295,7 @@ body {
 .splash-text {
   position: absolute;
   z-index: 14;
-  top: 55%;
+  top: 40%;
   left: 64%;
   transform: translate(-50%, -50%) rotateZ(-9deg) skewY(-1deg);
   text-align: center;
@@ -305,14 +305,14 @@ body {
 
 .splash-text h1 {
   font-family: "Kolker Brush", cursive;
-  font-size: 15cqw;
+  font-size: 30cqw;
   color: #2a3a4a;
   margin: 0.5em 0;
 }
 
 .splash-text p {
   font-family: serif;
-  font-size: 5cqw;
+  font-size: 15cqw;
   color: #444;
 }
 
