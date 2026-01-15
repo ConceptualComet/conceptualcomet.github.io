@@ -295,11 +295,11 @@ body {
 .splash-text {
   position: absolute;
   z-index: 14;
-  top: 50%;
-  left: 62%;
+  top: 40%;
+  left: 64%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 280px;
+  width: 23%;
 }
 
 .splash-text h1 {
