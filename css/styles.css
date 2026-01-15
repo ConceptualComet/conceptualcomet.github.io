@@ -295,7 +295,7 @@ body {
 .splash-text {
   position: absolute;
   z-index: 14;
-  top: 40%;
+  top: 50%;
   left: 64%;
   transform: translate(-50%, -50%) rotateZ(-9deg) skewY(-1deg);
   text-align: center;
