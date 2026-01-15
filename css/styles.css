@@ -297,7 +297,7 @@ body {
   z-index: 14;
   top: 45%;
   left: 64%;
-  transform: translate(-50%, -50%) rotateZ('-11') skewY(-1);
+  transform: translate(-50%, -50%) rotateZ(-11%) skewY(-1%);
   text-align: center;
   width: 20%;
 }
