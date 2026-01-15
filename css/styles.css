@@ -238,17 +238,18 @@ body {
 
 /* Astronaut Sticker */
 .astronaut-orbit {
-  animation: orbit 8s ease-in-out infinite;
+ z-index: 14; 
+ animation: orbit 8s ease-in-out infinite;
 }
 .astronaut-sticker {
-  z-index: 14;
+  z-index: 15;
   background-image: url('/img/astronaut.png');
   animation: bob 3s ease-in-out infinite;
 }
 
 /* About */
 .about {
- z-index: 15;
+ z-index: 16;
  background-image: url('/img/about.png');
 }
 
