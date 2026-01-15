@@ -305,14 +305,14 @@ body {
 
 .splash-text h1 {
   font-family: "Kolker Brush", cursive;
-  font-size: 30cqw;
+  font-size: 20cqw;
   color: #2a3a4a;
   margin: 0.5em 0;
 }
 
 .splash-text p {
   font-family: serif;
-  font-size: 15cqw;
+  font-size: 10cqw;
   color: #444;
 }
 
