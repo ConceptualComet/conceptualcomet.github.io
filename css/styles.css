@@ -420,4 +420,25 @@ body {
 #clip-right[data-selected="curriculum"] { top: 40%; }
 #clip-right[data-selected="colophon"] { top: 55%; }
 
+/* Blog Content */
+.blog-content {
+  position: absolute;
+  z-index: 11;
+  overflow-y: auto;
+  padding: 1em;
+  font-family: serif;
+  container-type: inline-size;
+}
 
+.blog-content article {
+  margin-bottom: 1.5em;
+}
+
+.blog-content time {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.blog-content p {
+  margin-top: 0.5em;
+}
