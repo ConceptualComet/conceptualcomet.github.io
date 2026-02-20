@@ -153,6 +153,14 @@ body {
   50% { transform: translateY(-6px); }
 }
 
+@keyframes jiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
 /* Content Layer */
 .page-layer{
   position: absolute;
@@ -175,6 +183,9 @@ body {
 .monitor-sticker {
   z-index: 2;
   background-image: url('/img/monitor.png');
+}
+.monitor-sticker:hover {
+   animation: jiggle 0.3s ease-in-out infinite;
 }
 
 /* Binder Clip */
