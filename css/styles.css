@@ -261,11 +261,15 @@ body {
   position: absolute;
   z-index: 14;
   background-image: url(/img/coming-soon.gif);
-/* background-image: url(/img/enter.gif); */
+ /* background-image: url(/img/enter.gif); */
+  background-size: contain;
+  background-repeat: no-repeat;
   top: 45%;
   left: 64%;
   transform: translate(-50%, -50%);
   width: 20%;
+  aspect-ratio: 173 / 106;
+ /* aspect-ratio: 135 / 83; */
   container-type: inline-size;
 }
 
