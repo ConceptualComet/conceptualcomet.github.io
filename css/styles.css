@@ -378,18 +378,20 @@ body {
 /* Binder clip indicator */
 .nav-clip {
   position: absolute;
-  width: 1366px;
+  width: 116px;
+  left: 50%;
+  transform: translateX(-50%);
   transition: top 0.3s ease;
   pointer-events: none;
 }
 
 /* Left clip positions */
-#clip-left[data-selected="now"] { top: 14.2%; }
+#clip-left[data-selected="now"] { top: 0%; }
 #clip-left[data-selected="about"] { top: 30%; }
 #clip-left[data-selected="links"] { top: 50%; }
 
 /* Right clip positions */
-#clip-right[data-selected="blog"] { top: 10.66%; }
+#clip-right[data-selected="blog"] { top: 0%; }
 #clip-right[data-selected="shrines"] { top: 25%; }
 #clip-right[data-selected="curriculum"] { top: 40%; }
 #clip-right[data-selected="colophon"] { top: 55%; }
