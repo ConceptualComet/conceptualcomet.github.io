@@ -410,9 +410,9 @@ body {
 }
 
 /* Left clip positions */
-#clip-left[data-selected="now"] { top: 0%; }
+#clip-left[data-selected="links"] { top: 0%; }
 #clip-left[data-selected="about"] { top: 30%; }
-#clip-left[data-selected="links"] { top: 50%; }
+#clip-left[data-selected="now"] { top: 50%; }
 
 /* Right clip positions */
 #clip-right[data-selected="blog"] { top: 0%; }
