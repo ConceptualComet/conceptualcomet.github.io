@@ -82,18 +82,12 @@ function positionNav() {
   // Position left nav
   const navLeft = document.querySelector('.folder-nav-left');
   if (navLeft) {
-    navLeft.style.top = (offsetY + renderedHeight * 0.856) + 'px';
-    navLeft.style.left = (offsetX + renderedWidth * 0.142) + 'px';
+    navLeft.style.top = (offsetY + renderedHeight * 0.619) + 'px';
+    navLeft.style.left = (offsetX + renderedWidth * 0.163) + 'px';
     navLeft.style.width = (renderedWidth * 0.018) + 'px';
     navLeft.style.height = (renderedHeight * 0.236) + 'px';
   }
-  console.log('Left nav position:', {
-  top: offsetY + renderedHeight * 0.856,
-  left: offsetX + renderedWidth * 0.142,
-  width: renderedWidth * 0.018,
-  height: renderedHeight * 0.236,
-  viewportHeight: vh
-});
+  
 }
 
 // On page load
