@@ -18,6 +18,12 @@ function revealLayer(layerName) {
       });
     });
   }
+
+  // Show blog-content only when blog is the top layer
+  const blogContent = document.querySelector('.blog-content');
+  if (blogContent) {
+    blogContent.style.display = layerName === 'blog' ? 'block' : 'none';
+  }
   
   // Update clip positions
   updateClips(layerName);
@@ -47,7 +53,7 @@ function resetJournal() {
 //   revealLayer('blog');
 // }
 
-function positionNav() {
+function positionElements() {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   
@@ -87,7 +93,15 @@ function positionNav() {
     navLeft.style.width = (renderedWidth * 0.018) + 'px';
     navLeft.style.height = (renderedHeight * 0.236) + 'px';
   }
-  
+
+// Position blog content
+const blogContent = document.querySelector('.blog-content');
+if (blogContent) {
+  blogContent.style.top = (offsetY + renderedHeight * 0.191) + 'px';
+  blogContent.style.left = (offsetX + renderedWidth * 0.543) + 'px';
+  blogContent.style.width = (renderedWidth * 0.217) + 'px';
+  blogContent.style.height = (renderedHeight * 0.569) + 'px';
+}
 }
 
 // On page load
