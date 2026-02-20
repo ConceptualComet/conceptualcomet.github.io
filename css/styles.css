@@ -271,6 +271,12 @@ body {
   container-type: inline-size;
 }
 
+.splash-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Astronaut Sticker */
 .astronaut-orbit {
  z-index: 14; 
