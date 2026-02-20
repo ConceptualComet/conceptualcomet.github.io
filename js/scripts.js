@@ -1,6 +1,6 @@
 const stacks = {
   leftTop: ['about', 'earthrise'],
-  leftBottom: ['links', 'now', 'astronaut'],
+  leftBottom: ['links', 'now', 'sunita'],
   right: ['colophon', 'curriculum', 'shrines', 'blog', 'splash']
 };
 
@@ -15,7 +15,7 @@ function revealLayer(layerName) {
       const elements = document.querySelectorAll(`[data-layer="${layer}"]`);
       elements.forEach(el => {
         el.style.display = index <= layerIndex ? 'block' : 'none';
-      }
+      });
     });
   }
   
@@ -38,7 +38,7 @@ function updateClips(layerName) {
 function resetJournal() {
   // Show all top layers (default state) except splash
   revealLayer('earthrise');
-  revealLayer('astronaut');
+  revealLayer('sunita');
   revealLayer('blog');
 }
 
@@ -55,6 +55,6 @@ window.addEventListener('DOMContentLoaded', () => {
 //     // Show splash on top of everything
    document.querySelector('[data-layer="splash"]').style.display = 'block';
     document.querySelector('[data-layer="earthrise"]').style.display = 'block';
-    document.querySelector('[data-layer="astronaut"]').style.display = 'block';
+    document.querySelector('[data-layer="sunita"]').style.display = 'block';
 //   }
 });
