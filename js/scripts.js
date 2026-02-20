@@ -83,7 +83,7 @@ function positionNav() {
   const navLeft = document.querySelector('.folder-nav-left');
   if (navLeft) {
     navLeft.style.top = (offsetY + renderedHeight * 0.619) + 'px';
-    navLeft.style.left = (offsetX + renderedWidth * 0.145) + 'px';
+    navLeft.style.left = (offsetX + renderedWidth * 0.14) + 'px';
     navLeft.style.width = (renderedWidth * 0.018) + 'px';
     navLeft.style.height = (renderedHeight * 0.236) + 'px';
   }
