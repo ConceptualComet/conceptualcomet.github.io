@@ -354,15 +354,15 @@ body {
 }
 
 .folder-nav-right a { height: 25%; }
-.folder-nav-right a:nth-child(1) { top: 0%; }
-.folder-nav-right a:nth-child(2) { top: 25%; }
-.folder-nav-right a:nth-child(3) { top: 50%; }
-.folder-nav-right a:nth-child(4) { top: 75%; }
+.folder-nav-right a:nth-of-type(1) { top: 0%; }
+.folder-nav-right a:nth-of-type(2) { top: 25%; }
+.folder-nav-right a:nth-of-type(3) { top: 50%; }
+.folder-nav-right a:nth-of-type(4) { top: 75%; }
 
 .folder-nav-left a { height: 33.33%; }
-.folder-nav-left a:nth-child(1) { top: 0%; }
-.folder-nav-left a:nth-child(2) { top: 33.33%; }
-.folder-nav-left a:nth-child(3) { top: 66.66%; }
+.folder-nav-left a:nth-of-type(1) { top: 0%; }
+.folder-nav-left a:nth-of-type(2) { top: 33.33%; }
+.folder-nav-left a:nth-of-type(3) { top: 66.66%; }
 
 .folder-nav-right a::before {
   content: '';
