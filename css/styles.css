@@ -254,6 +254,18 @@ body {
   background-image: url(/img/splash.png);
 }
 
+.splash-enter {
+  position: absolute;
+  z-index: 14;
+  background-image: url(/img/coming-soon.gif);
+/* background-image: url(/img/enter.gif); */
+  top: 45%;
+  left: 64%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  container-type: inline-size;
+}
+
 /* Astronaut Sticker */
 .astronaut-orbit {
  z-index: 14; 
@@ -302,16 +314,4 @@ body {
 }
 
 
-/* Splash Page */
-.splash-text {
-  position: absolute;
-  z-index: 14;
-  background-image: url('/img/coming-soon.gif');
-/* background-image: url('/img/enter.gif'); */
-  top: 45%;
-  left: 64%;
-  transform: translate(-50%, -50%) rotateZ(-9deg) skewY(-1deg);
-  text-align: center;
-  width: 20%;
-  container-type: inline-size;
-}
+
