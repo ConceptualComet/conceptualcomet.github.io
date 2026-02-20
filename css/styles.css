@@ -345,7 +345,7 @@ body {
   width: 100%;
   height: 25%;
   cursor: pointer;
-  background: rgba(255, 0, 0, 0.9);
+  font-size: 0;
 }
 
 .folder-nav-right a::before {
