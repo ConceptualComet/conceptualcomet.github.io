@@ -266,7 +266,7 @@ body {
   top: 35%;
   left: 60%;
   transform: translate(-50%, -50%);
-  width: 5%;
+  width: 10%;
   aspect-ratio: 135 / 83;
   container-type: inline-size;
 }
