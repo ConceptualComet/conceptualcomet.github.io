@@ -12,8 +12,8 @@ function revealLayer(layerName) {
     
     // Show this layer and everything below it, hide everything above
     layers.forEach((layer, index) => {
-      const el = document.querySelector(`[data-layer="${layer}"]`);
-      if (el) {
+      const elements = document.querySelectorAll(`[data-layer="${layer}"]`);
+      elements.forEach(el => {
         el.style.display = index <= layerIndex ? 'block' : 'none';
       }
     });
