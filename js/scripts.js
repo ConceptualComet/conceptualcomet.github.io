@@ -36,10 +36,10 @@ function updateClips(layerName) {
 }
 
 function resetJournal() {
-  // Show all top layers (default state) except splash
+  // Show all top layers (default state)
   revealLayer('earthrise');
   revealLayer('sunita');
-  revealLayer('blog');
+  revealLayer('splash');
 }
 
 // function passAgeGate() {
