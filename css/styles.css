@@ -347,7 +347,6 @@ body {
   width: 100%;
   cursor: pointer;
   font-size: 0;
-  background: rgba(255, 0, 0, 0.5);
 }
 
 .folder-nav-right a { height: 25%; }
@@ -375,6 +374,23 @@ body {
 }
 
 .folder-nav-right a:hover::before {
+  opacity: 1;
+}
+
+.folder-nav-left a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 200, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.folder-nav-left a:hover::before {
   opacity: 1;
 }
 
