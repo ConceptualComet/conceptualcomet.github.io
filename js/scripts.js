@@ -87,6 +87,13 @@ function positionNav() {
     navLeft.style.width = (renderedWidth * 0.018) + 'px';
     navLeft.style.height = (renderedHeight * 0.236) + 'px';
   }
+  console.log('Left nav position:', {
+  top: offsetY + renderedHeight * 0.856,
+  left: offsetX + renderedWidth * 0.142,
+  width: renderedWidth * 0.018,
+  height: renderedHeight * 0.236,
+  viewportHeight: vh
+});
 }
 
 // On page load
