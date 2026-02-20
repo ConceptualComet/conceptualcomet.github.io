@@ -183,8 +183,10 @@ body {
 .monitor-sticker {
   z-index: 2;
   background-image: url('/img/monitor.png');
-/* }
-.monitor-sticker:hover { 
+}
+
+
+/*.monitor-sticker:hover { 
    animation: jiggle 0.3s ease-in-out infinite;
 } */
 
