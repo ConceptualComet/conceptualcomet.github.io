@@ -47,7 +47,54 @@ function resetJournal() {
 //   revealLayer('blog');
 // }
 
+function positionNav() {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  
+  const folderWidth = 1366;
+  const folderHeight = 768;
+  const folderRatio = folderWidth / folderHeight;
+  const viewportRatio = vw / vh;
+  
+  let renderedWidth, renderedHeight, offsetX, offsetY;
+  
+  if (viewportRatio > folderRatio) {
+    renderedHeight = vh;
+    renderedWidth = vh * folderRatio;
+    offsetX = (vw - renderedWidth) / 2;
+    offsetY = 0;
+  } else {
+    renderedWidth = vw;
+    renderedHeight = vw / folderRatio;
+    offsetX = 0;
+    offsetY = (vh - renderedHeight) / 2;
+  }
+  
+  // Position right nav
+  const navRight = document.querySelector('.folder-nav-right');
+  if (navRight) {
+    navRight.style.top = (offsetY + renderedHeight * 0.106) + 'px';
+    navRight.style.right = (vw - offsetX - renderedWidth + renderedWidth * 0.184) + 'px';
+    navRight.style.width = (renderedWidth * 0.018) + 'px';
+    navRight.style.height = (renderedHeight * 0.504) + 'px';
+  }
+  
+  // Position left nav
+  const navLeft = document.querySelector('.folder-nav-left');
+  if (navLeft) {
+    navLeft.style.top = (offsetY + renderedHeight * 0.856) + 'px';
+    navLeft.style.left = (offsetX + renderedWidth * 0.142) + 'px';
+    navLeft.style.width = (renderedWidth * 0.018) + 'px';
+    navLeft.style.height = (renderedHeight * 0.236) + 'px';
+  }
+}
+
 // On page load
+
+window.addEventListener('DOMContentLoaded', positionNav);
+window.addEventListener('resize', positionNav);
+
+
 window.addEventListener('DOMContentLoaded', () => {
 //   if (sessionStorage.getItem('ageVerified')) {
 //     resetJournal();
