@@ -48,13 +48,13 @@ function resetJournal() {
 // }
 
 // On page load
-// window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
 //   if (sessionStorage.getItem('ageVerified')) {
 //     resetJournal();
 //   } else {
 //     // Show splash on top of everything
-//     document.querySelector('[data-layer="splash"]').style.display = 'block';
-//     document.querySelector('[data-layer="earthrise"]').style.display = 'block';
- //    document.querySelector('[data-layer="astronaut"]').style.display = 'block';
+   document.querySelector('[data-layer="splash"]').style.display = 'block';
+    document.querySelector('[data-layer="earthrise"]').style.display = 'block';
+    document.querySelector('[data-layer="astronaut"]').style.display = 'block';
 //   }
-// });
+});
