@@ -24,7 +24,7 @@ function revealLayer(layerName) {
   if (blogContent) {
     blogContent.style.display = layerName === 'blog' ? 'block' : 'none';
   }
-  
+}  
 
 
 function resetJournal() {
