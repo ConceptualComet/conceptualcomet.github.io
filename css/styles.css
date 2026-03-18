@@ -190,12 +190,11 @@ body {
    animation: jiggle 0.3s ease-in-out infinite;
 } */
 
-/* Binder Clip */
+/*Binder Clip */
 .binder-clip{
   z-index: 3;
-  background-image: url('/img/binder-clip.png');
+  background-image: url(/img/binder-clip.png);
 }
-
 
 /* Scrap */
 .scrap {
@@ -335,7 +334,6 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-
 
 /* Blog Content */
 .blog-content {
