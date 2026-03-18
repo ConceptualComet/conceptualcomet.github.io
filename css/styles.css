@@ -195,12 +195,6 @@ body {
   position: absolute;
   z-index: 50;
   cursor: pointer;
-  display: block;
-  /* Fallback size/placement in case JS hasn't positioned yet. */
-  width: 116px;
-  height: 75px;
-  top: 100px;
-  left: calc(100vw - 160px);
 }
 
 .binder-clip-nav:hover {

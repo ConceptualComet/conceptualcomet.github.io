@@ -82,15 +82,10 @@ if (blogContent) {
 // Position binder clip nav
 const binderClip = document.querySelector('.binder-clip-nav');
 if (binderClip) {
-  // Roughly matches the old right-nav placement math.
   binderClip.style.top = (offsetY + renderedHeight * 0.106) + 'px';
   binderClip.style.left = (offsetX + renderedWidth * 0.798) + 'px';
-  // The image is 125x75, so keep it near that physical size.
-  // Clamp so it doesn't get tiny on smaller viewports.
-  const clipWidth = Math.max(116, Math.min(renderedWidth * 0.12, 160));
-  binderClip.style.width = clipWidth + 'px';
-  // Image is 125x75 in pixels, so keep the same aspect ratio.
-  binderClip.style.height = (clipWidth * 0.6) + 'px';
+  binderClip.style.width = (renderedWidth * 0.092) + 'px';
+  binderClip.style.height = 'auto';
 }
   
   // If the popup is already open, keep it anchored correctly.
