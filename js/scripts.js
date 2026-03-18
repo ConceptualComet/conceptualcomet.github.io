@@ -25,7 +25,6 @@ function revealLayer(layerName) {
     blogContent.style.display = layerName === 'blog' ? 'block' : 'none';
   }
   
-}
 
 
 function resetJournal() {
@@ -62,6 +61,8 @@ function positionElements() {
     offsetX = 0;
     offsetY = (vh - renderedHeight) / 2;
   }
+  
+  
 
 // Position blog content
 const blogContent = document.querySelector('.blog-content');
