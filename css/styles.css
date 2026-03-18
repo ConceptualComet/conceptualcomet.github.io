@@ -53,13 +53,13 @@ body {
 }
 
 .nebula {
-  background-image: url('/img/blue-back.png');
+  background-image: url(/img/blue-back.png);
   background-size: cover;
   animation: scroll 300s linear infinite;
 }
 
 .stars {
-  background-image: url('/img/blue-stars.png');
+  background-image: url(/img/blue-stars.png);
   background-size: cover;
   animation: scroll 200s linear infinite;
 }
@@ -75,7 +75,7 @@ body {
 }
 
 .planet-big {
-  background-image: url('/img/prop-planet-big.png'); 
+  background-image: url(/img/prop-planet-big.png); 
   width: 20vw; /* scales with viewport width */
   height: 20vw;
   min-width: 600px; /* prevents them from getting too small on mobile */
@@ -83,7 +83,7 @@ body {
 }
 
 .planet-small {
-  background-image: url('/img/prop-planet-small.png'); 
+  background-image: url(/img/prop-planet-small.png); 
   width: 8vw;
   height: 8vw;
   min-width: 60px;
@@ -91,7 +91,7 @@ body {
 }
 
 .asteroid-1 {
-  background-image: url('/img/asteroid-1.png'); 
+  background-image: url(/img/asteroid-1.png); 
   width: 6vw; 
   height: 6vw;
   min-width: 60px; 
@@ -100,7 +100,7 @@ body {
 }
 
 .asteroid-2 {
-  background-image: url('/img/asteroid-2.png'); 
+  background-image: url(/img/asteroid-2.png); 
   width: 4vw;
   height: 4vw;
   min-width: 30px;
@@ -109,7 +109,7 @@ body {
 }
 
 .asteroid-3 {
-  background-image: url('/img/asteroid-2.png'); 
+  background-image: url(/img/asteroid-2.png); 
   width: 2vw;
   height: 2vw;
   min-width: 30px;
@@ -176,13 +176,13 @@ body {
 /* Folder */
 .folder {
   z-index: 1;
-  background-image: url('/img/folder.png');
+  background-image: url(/img/folder.png);
 }
 
 /* Monitor Sticker */
 .monitor-sticker {
   z-index: 2;
-  background-image: url('/img/monitor.png');
+  background-image: url(/img/monitor.png);
 }
 
 
@@ -283,44 +283,44 @@ body {
 }
 .astronaut-sticker {
   z-index: 15;
-  background-image: url('/img/astronaut.png');
+  background-image: url(/img/astronaut.png);
   animation: bob 3s ease-in-out infinite;
 }
 
 /* About */
 .about {
  z-index: 16;
- background-image: url('/img/about.png');
+ background-image: url(/img/about.png);
 }
 
 /* Earthrise */
 .earthrise {
  z-index: 17;
- background-image: url('/img/earthrise.png');
+ background-image: url(/img/earthrise.png);
 }
 
 /* Links */
 .links {
  z-index: 18;
- background-image: url('/img/links.png');
+ background-image: url(/img/links.png);
 }
 
 /* Now */
 .now {
  z-index: 19;
- background-image: url('/img/now.png');
+ background-image: url(/img/now.png);
 }
 
 /* Sunita */
 .sunita {
  z-index: 20;
- background-image: url('/img/Sunita.png');
+ background-image: url(/img/Sunita.png);
 }
 
 /* Be Kind */
 .be-kind {
  z-index: 21;
- background-image: url('/img/be-kind.png');
+ background-image: url(/img/be-kind.png);
 }
 
 /* Screen reader only */
