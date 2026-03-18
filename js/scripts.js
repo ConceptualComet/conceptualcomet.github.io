@@ -62,7 +62,13 @@ function positionElements() {
     offsetY = (vh - renderedHeight) / 2;
   }
   
-  
+// Position splash enter button
+const splashEnter = document.querySelector('.splash-enter');
+if (splashEnter) {
+  splashEnter.style.top = (offsetY + renderedHeight * 0.25) + 'px';
+  splashEnter.style.left = (offsetX + renderedWidth * 0.56) + 'px';
+  splashEnter.style.width = (renderedWidth * 0.10) + 'px';
+}
 
 // Position blog content
 const blogContent = document.querySelector('.blog-content');

@@ -262,10 +262,6 @@ body {
   background-image: url(/img/enter.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  top: 35%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  width: 10%;
   aspect-ratio: 135 / 83;
   container-type: inline-size;
 }
