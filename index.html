@@ -39,7 +39,6 @@
 
 <div class="page-layer folder" data-layer="colophon"> </div>
 <div class="page-layer monitor-sticker" data-layer="colophon"> </div>
-<div class="page-layer binder-clip" data-layer="colophon"> </div>
 <div class="page-layer scrap" data-layer="curriculum"> </div>
 <div class="page-layer curriculum" data-layer="curriculum"> </div>
 <div class="page-layer busts" data-layer="curriculum"> </div>
@@ -59,6 +58,25 @@
 <div class="page-layer now" data-layer="now"> </div>
 <div class="page-layer sunita" data-layer="sunita"> </div>
 <div class="page-layer be-kind" data-layer="sunita"> </div>
+
+<!-- Navigation Popup -->
+<img src="/img/binder-clip.png" alt="Open navigation" class="binder-clip-nav" onclick="openPopup()">
+<div class="nav-popup" id="nav-popup">
+  <div class="popup-titlebar">
+    <span>Navigation</span>
+    <button onclick="closePopup()">×</button>
+  </div>
+  <ul class="popup-menu">
+    <li><a href="#" onclick="revealLayer('blog'); closePopup(); return false;">Blog</a></li>
+    <li><a href="#" onclick="revealLayer('shrines'); closePopup(); return false;">Shrines</a></li>
+    <li><a href="#" onclick="revealLayer('curriculum'); closePopup(); return false;">Curriculum</a></li>
+    <li><a href="#" onclick="revealLayer('colophon'); closePopup(); return false;">Colophon</a></li>
+    <hr>
+    <li><a href="#" onclick="revealLayer('now'); closePopup(); return false;">Now</a></li>
+    <li><a href="#" onclick="revealLayer('about'); closePopup(); return false;">About</a></li>
+    <li><a href="#" onclick="revealLayer('links'); closePopup(); return false;">Links</a></li>
+  </ul>
+</div>
 
     
 <!-- Content -->
