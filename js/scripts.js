@@ -25,21 +25,8 @@ function revealLayer(layerName) {
     blogContent.style.display = layerName === 'blog' ? 'block' : 'none';
   }
   
-  // Update clip positions
-  updateClips(layerName);
 }
 
-function updateClips(layerName) {
-  const clipRight = document.getElementById('clip-right');
-  const clipLeft = document.getElementById('clip-left');
-  
-  if (['blog', 'shrines', 'curriculum', 'colophon'].includes(layerName)) {
-    clipRight.dataset.selected = layerName;
-  }
-  if (['now', 'about', 'links'].includes(layerName)) {
-    clipLeft.dataset.selected = layerName;
-  }
-}
 
 function resetJournal() {
   // Show all top layers (default state)
@@ -75,24 +62,6 @@ function positionElements() {
     offsetX = 0;
     offsetY = (vh - renderedHeight) / 2;
   }
-  
-  // Position right nav
-  const navRight = document.querySelector('.folder-nav-right');
-  if (navRight) {
-    navRight.style.top = (offsetY + renderedHeight * 0.106) + 'px';
-    navRight.style.right = (vw - offsetX - renderedWidth + renderedWidth * 0.184) + 'px';
-    navRight.style.width = (renderedWidth * 0.018) + 'px';
-    navRight.style.height = (renderedHeight * 0.504) + 'px';
-  }
-  
-  // Position left nav
-  const navLeft = document.querySelector('.folder-nav-left');
-  if (navLeft) {
-    navLeft.style.top = (offsetY + renderedHeight * 0.619) + 'px';
-    navLeft.style.left = (offsetX + renderedWidth * 0.14) + 'px';
-    navLeft.style.width = (renderedWidth * 0.018) + 'px';
-    navLeft.style.height = (renderedHeight * 0.236) + 'px';
-  }
 
 // Position blog content
 const blogContent = document.querySelector('.blog-content');
@@ -106,8 +75,8 @@ if (blogContent) {
 
 // On page load
 
-window.addEventListener('DOMContentLoaded', positionNav);
-window.addEventListener('resize', positionNav);
+window.addEventListener('DOMContentLoaded', positionElements);
+window.addEventListener('resize', positionElements);
 
 
 window.addEventListener('DOMContentLoaded', () => {
