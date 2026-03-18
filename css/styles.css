@@ -191,9 +191,20 @@ body {
 } */
 
 /*Binder Clip */
-.binder-clip{
-  z-index: 3;
-  background-image: url(/img/binder-clip.png);
+.binder-clip-nav {
+  position: absolute;
+  z-index: 50;
+  cursor: pointer;
+  display: block;
+  /* Fallback size/placement in case JS hasn't positioned yet. */
+  width: 116px;
+  height: 75px;
+  top: 100px;
+  left: calc(100vw - 160px);
+}
+
+.binder-clip-nav:hover {
+  filter: brightness(1.1);
 }
 
 /* Scrap */
@@ -317,6 +328,77 @@ body {
 .be-kind {
  z-index: 21;
  background-image: url(/img/be-kind.png);
+}
+
+/* Navigation Popup */
+.nav-popup {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  background: #ffffff;
+  border: 1px solid #000;
+  box-shadow: 1px 1px 0 #000, 2px 2px 0 #000;
+  font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
+  font-size: 12px;
+  min-width: 160px;
+}
+
+.nav-popup.open {
+  display: block;
+}
+
+.popup-titlebar {
+  background: linear-gradient(180deg, #fff 0%, #fff 45%, #000 45%, #000 55%, #fff 55%, #fff 100%);
+  background-size: 100% 6px;
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.popup-titlebar span {
+  background: #fff;
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+.popup-titlebar button {
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: inset -1px -1px 0 #808080;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popup-titlebar button:active {
+  background: #000;
+}
+
+.popup-menu {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.popup-menu li a {
+  display: block;
+  padding: 2px 16px;
+  color: #000;
+  text-decoration: none;
+}
+
+.popup-menu li a:hover {
+  background: #000;
+  color: #fff;
+}
+
+.popup-menu hr {
+  border: none;
+  border-top: 1px dashed #808080;
+  margin: 4px 8px;
 }
 
 /* Screen reader only */

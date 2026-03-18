@@ -78,6 +78,70 @@ if (blogContent) {
   blogContent.style.width = (renderedWidth * 0.217) + 'px';
   blogContent.style.height = (renderedHeight * 0.569) + 'px';
 }
+
+// Position binder clip nav
+const binderClip = document.querySelector('.binder-clip-nav');
+if (binderClip) {
+  // Roughly matches the old right-nav placement math.
+  binderClip.style.top = (offsetY + renderedHeight * 0.106) + 'px';
+  binderClip.style.left = (offsetX + renderedWidth * 0.798) + 'px';
+  // The image is 125x75, so keep it near that physical size.
+  // Clamp so it doesn't get tiny on smaller viewports.
+  const clipWidth = Math.max(116, Math.min(renderedWidth * 0.12, 160));
+  binderClip.style.width = clipWidth + 'px';
+  // Image is 125x75 in pixels, so keep the same aspect ratio.
+  binderClip.style.height = (clipWidth * 0.6) + 'px';
+}
+  
+  // If the popup is already open, keep it anchored correctly.
+  const navPopup = document.getElementById('nav-popup');
+  if (navPopup && navPopup.classList.contains('open')) {
+    requestAnimationFrame(positionNavPopup);
+  }
+}
+
+// Navigation Popup Functions
+function positionNavPopup() {
+  const binderClip = document.querySelector('.binder-clip-nav');
+  const navPopup = document.getElementById('nav-popup');
+  if (!binderClip || !navPopup) return;
+
+  // The popup is `display: block` only when `.open` is set,
+  // so this should run after opening (or it will measure 0x0).
+  const clipRect = binderClip.getBoundingClientRect();
+  const popupRect = navPopup.getBoundingClientRect();
+
+  const margin = 8;
+  const gap = 6;
+
+  // Try to place it to the right of the clip (old Mac-ish dropdown).
+  let left = clipRect.right + gap;
+  let top = clipRect.top;
+
+  // If it would overflow to the right, flip it to the left.
+  if (left + popupRect.width > window.innerWidth - margin) {
+    left = clipRect.left - gap - popupRect.width;
+  }
+
+  // Clamp vertically to keep it on-screen.
+  top = Math.max(margin, Math.min(top, window.innerHeight - popupRect.height - margin));
+
+  navPopup.style.left = left + 'px';
+  navPopup.style.top = top + 'px';
+}
+
+function openPopup() {
+  const navPopup = document.getElementById('nav-popup');
+  if (!navPopup) return;
+  navPopup.classList.add('open');
+  // Wait one frame so the element is measurable.
+  requestAnimationFrame(positionNavPopup);
+}
+
+function closePopup() {
+  const navPopup = document.getElementById('nav-popup');
+  if (!navPopup) return;
+  navPopup.classList.remove('open');
 }
 
 // On page load
