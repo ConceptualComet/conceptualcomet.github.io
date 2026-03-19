@@ -154,4 +154,17 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelector('[data-layer="earthrise"]').style.display = 'block';
     document.querySelector('[data-layer="sunita"]').style.display = 'block';
 //   }
+
+  // Close the navigation popup when clicking outside it.
+  document.addEventListener('pointerdown', (e) => {
+    const navPopup = document.getElementById('nav-popup');
+    if (!navPopup || !navPopup.classList.contains('open')) return;
+
+    const binderClip = document.querySelector('.binder-clip-nav');
+    const clickedInsidePopup = navPopup.contains(e.target);
+    const clickedTrigger = binderClip && binderClip.contains(e.target);
+
+    if (clickedInsidePopup || clickedTrigger) return;
+    closePopup();
+  });
 });
