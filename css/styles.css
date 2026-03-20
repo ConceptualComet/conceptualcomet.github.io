@@ -93,6 +93,11 @@ body {
   pointer-events: none;
   opacity: 0.8;
   box-shadow: 0 0 8px #a8d4ff, 0 0 15px #6bb3ff;
+  transition: width 0.4s ease-out, 
+              height 0.4s ease-out, 
+              opacity 0.4s ease-out, 
+              box-shadow 0.4s ease-out,
+              background 0.4s ease-out;
 }
 
 .clip-sparkle:nth-child(2) { 
@@ -171,7 +176,6 @@ body {
   height: 14px;
   background: radial-gradient(circle, #fff 0%, #fff 30%, #a8d4ff 60%, #6bb3ff 80%, transparent 100%);
   box-shadow: 0 0 15px #fff, 0 0 30px #a8d4ff, 0 0 45px #6bb3ff;
-  animation-duration: 0.8s !important;
 }
 
 .binder-clip-wrapper.cursor-near .binder-clip-nav {
