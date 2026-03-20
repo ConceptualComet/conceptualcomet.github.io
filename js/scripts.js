@@ -1,3 +1,89 @@
+// Toggle playlist visibility
+function togglePlaylist() {
+  const playlist = document.getElementById('player-playlist');
+  playlist.classList.toggle('open');
+}
+
+// Mute toggle
+let isMuted = false;
+function toggleMute() {
+  isMuted = !isMuted;
+  Amplitude.setVolume(isMuted ? 0 : 80);
+  document.querySelector('.mute-btn').textContent = isMuted ? '🔇' : '🔊';
+}
+
+// Initialize Amplitude
+Amplitude.init({
+  songs: [
+    {
+      name: "Song One",
+      artist: "Artist Name",
+      url: "/audio/song1.mp3"
+    },
+    {
+      name: "Song Two",
+      artist: "Artist Name",
+      url: "/audio/song2.mp3"
+    },
+    {
+      name: "Song Three",
+      artist: "Artist Name",
+      url: "/audio/song3.mp3"
+    }
+  ],
+  callbacks: {
+    song_change: function() {
+      const meta = Amplitude.getActiveSongMetadata();
+      document.querySelector('.now-playing').textContent = 
+        meta.name + ' - ' + meta.artist;
+    }
+  }
+});
+
+// Basic visualizer using Web Audio API
+function initVisualizer() {
+  const canvas = document.getElementById('visualizer');
+  const ctx = canvas.getContext('2d');
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  const analyser = audioContext.createAnalyser();
+  analyser.fftSize = 64;
+  
+  const audio = document.querySelector('audio');
+  const source = audioContext.createMediaElementSource(audio);
+  source.connect(analyser);
+  analyser.connect(audioContext.destination);
+  
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+  
+  function draw() {
+    requestAnimationFrame(draw);
+    analyser.getByteFrequencyData(dataArray);
+    
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    const barWidth = canvas.width / bufferLength;
+    let x = 0;
+    
+    for (let i = 0; i < bufferLength; i++) {
+      const barHeight = (dataArray[i] / 255) * canvas.height;
+      
+      // Vaporwave gradient colors
+      const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
+      gradient.addColorStop(0, '#01cdfe');
+      gradient.addColorStop(0.5, '#ff71ce');
+      gradient.addColorStop(1, '#05ffa1');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(x, canvas.height - barHeight, barWidth - 1, barHeight);
+      x += barWidth;
+    }
+  }
+  
+  draw();
+}
+
 const stacks = {
   leftTop: ['about', 'earthrise'],
   leftBottom: ['links', 'now', 'sunita'],
