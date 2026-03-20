@@ -87,12 +87,6 @@ if (binderClip) {
   binderClip.style.width = (renderedWidth * 0.092) + 'px';
   binderClip.style.height = 'auto';
 }
-  
-  // If the popup is already open, keep it anchored correctly.
-  const navPopup = document.getElementById('nav-popup');
-  if (navPopup && navPopup.classList.contains('open')) {
-    requestAnimationFrame(positionNavPopup);
-  }
 }
 
 function openPopup(event) {
