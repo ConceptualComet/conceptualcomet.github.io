@@ -5,13 +5,13 @@ const stacks = {
 };
 
 const contentPositions = {
-  'blog-content': { top: 0.191, left: 0.543, width: 0.20, height: 0.565 },
-  'shrines-content': { top: 0.20, left: 0.5, width: 0.19, height: 0.54 },
+  'blog-content': { top: 0.191, left: 0.543, width: 0.195, height: 0.565 },
+  'shrines-content': { top: 0.20, left: 0.55, width: 0.19, height: 0.54 },
   'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.54 },
-  'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.54 },
-  'now-content': { top: 0.57, left: 0.15, width: 0.15, height: 0.10 },
-  'about-content': { top: 0.12, left: 0.15, width: 0.10, height: 0.10 },
-  'links-content': { top: 0.55, left: 0.15, width: 0.10, height: 0.10 }
+  'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.64 },
+  'now-content': { top: 0.6, left: 0.20, width: 0.15, height: 0.20 },
+  'about-content': { top: 0.17, left: 0.20, width: 0.10, height: 0.20 },
+  'links-content': { top: 0.55, left: 0.30, width: 0.10, height: 0.20 }
 };
 
 const rightContentAreas = ['blog', 'shrines', 'curriculum', 'colophon'];
