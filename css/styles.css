@@ -524,7 +524,7 @@ body {
 .be-kind {
  z-index: 21;
  background-image: url(/img/be-kind.png);
- animation: pulse-size .5s steps(3) infinite;
+ animation: pulse-size 1s steps(3) infinite;
  transform-origin: 35% 60%;
 }
 
