@@ -419,6 +419,10 @@ body {
   background: rgba(255, 0, 0, 0.3); /* temporary red tint */
 }
 
+/* Shrines Content */
+.shrines-content {
+  z-index: 7; /* same as shrines layer, below tv (8) and express-yourself (9) */
+}
 
 /* Blog Content */
 
