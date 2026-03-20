@@ -419,12 +419,27 @@ body {
   background: rgba(255, 0, 0, 0.3); /* temporary red tint */
 }
 
-/* Shrines Content */
 .shrines-content {
-  z-index: 7; /* same as shrines layer, below tv (8) and express-yourself (9) */
+  z-index: 7;
+}
+
+.about-content {
+  transform: rotate(1.5deg);
+}
+
+.now-content {
+  transform: rotate(1.5deg);
+}
+
+.links-content {
+  transform: rotate(1.5deg);
 }
 
 /* Blog Content */
+
+.blog-content {
+   transform: rotate(1.5deg);
+}
 
 .blog-content article {
   margin-bottom: 1.5em;
