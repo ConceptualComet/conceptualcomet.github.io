@@ -415,6 +415,7 @@ body {
   font-family: serif;
   container-type: inline-size;
   display: none; /* hidden by default */
+  background: rgba(255, 0, 0, 0.3); /* temporary red tint */
 }
 
 
