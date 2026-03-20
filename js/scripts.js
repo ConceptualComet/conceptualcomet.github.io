@@ -312,34 +312,6 @@ function toggleMute() {
   document.querySelector('.mute-btn').textContent = isMuted ? '🔇' : '🔊';
 }
 
-// Initialize Amplitude
-Amplitude.init({
-  songs: [
-    {
-      name: "Song One",
-      artist: "Artist Name",
-      url: "/audio/song1.mp3"
-    },
-    {
-      name: "Song Two",
-      artist: "Artist Name",
-      url: "/audio/song2.mp3"
-    },
-    {
-      name: "Song Three",
-      artist: "Artist Name",
-      url: "/audio/song3.mp3"
-    }
-  ],
-  callbacks: {
-    song_change: function() {
-      const meta = Amplitude.getActiveSongMetadata();
-      document.querySelector('.now-playing').textContent = 
-        meta.name + ' - ' + meta.artist;
-    }
-  }
-});
-
 // Basic visualizer using Web Audio API
 function initVisualizer() {
   const canvas = document.getElementById('visualizer');
@@ -384,7 +356,58 @@ function initVisualizer() {
   draw();
 }
 
-window.addEventListener('DOMContentLoaded', positionElements);
+window.addEventListener('DOMContentLoaded', () => {
+  positionElements();
+  
+  document.querySelector('[data-layer="splash"]').style.display = 'block';
+  document.querySelector('[data-layer="earthrise"]').style.display = 'block';
+  document.querySelector('[data-layer="sunita"]').style.display = 'block';
+  
+  // Initialize Amplitude after page loads
+  Amplitude.init({
+    songs: [
+      {
+        name: "Song One",
+        artist: "Artist Name",
+        url: "/audio/song1.mp3"
+      },
+      {
+        name: "Song Two",
+        artist: "Artist Name",
+        url: "/audio/song2.mp3"
+      },
+      {
+        name: "Song Three",
+        artist: "Artist Name",
+        url: "/audio/song3.mp3"
+      }
+    ],
+    callbacks: {
+      song_change: function() {
+        const meta = Amplitude.getActiveSongMetadata();
+        document.querySelector('.now-playing').textContent = 
+          meta.name + ' - ' + meta.artist;
+      }
+    }
+  });
+});
+
+// Initialize visualizer on first play
+let visualizerInitialized = false;
+
+function initVisualizerOnce() {
+  if (visualizerInitialized) return;
+  visualizerInitialized = true;
+  initVisualizer();
+}
+
+// Hook into Amplitude's play event
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.player-btn')) {
+    initVisualizerOnce();
+  }
+});
+
 window.addEventListener('resize', positionElements);
 
 // Show splash on top of everything
