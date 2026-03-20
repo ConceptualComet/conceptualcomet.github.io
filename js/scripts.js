@@ -209,43 +209,63 @@ document.addEventListener('click', function(event) {
 });
 
 // Cursor sparkle trail
+let sparkleThrottle = 0;
+
 document.addEventListener('mousemove', function(e) {
+  // Throttle sparkle creation (every 3rd move event)
+  sparkleThrottle++;
+  if (sparkleThrottle % 3 !== 0) {
+    checkClipProximity(e);
+    return;
+  }
+  
+  // Random offset for spread
+  const offsetX = (Math.random() - 0.5) * 40;
+  const offsetY = (Math.random() - 0.5) * 40;
+  
+  // Random drift direction for animation
+  const driftX = (Math.random() - 0.5) * 30;
+  const driftY = (Math.random() - 0.5) * 30;
+  
   // Create sparkle
   const sparkle = document.createElement('div');
   sparkle.className = 'sparkle';
-  sparkle.style.left = (e.clientX - 4) + 'px';
-  sparkle.style.top = (e.clientY - 4) + 'px';
+  sparkle.style.left = (e.clientX + offsetX - 3) + 'px';
+  sparkle.style.top = (e.clientY + offsetY - 3) + 'px';
+  sparkle.style.setProperty('--drift-x', driftX + 'px');
+  sparkle.style.setProperty('--drift-y', driftY + 'px');
   
   const container = document.getElementById('sparkle-container');
   if (container) {
     container.appendChild(sparkle);
     
-    // Remove after animation
     setTimeout(() => {
       sparkle.remove();
-    }, 800);
+    }, 1000);
   }
   
-  // Check proximity to binder clip
-  const clipWrapper = document.querySelector('.binder-clip-wrapper');
-  if (clipWrapper) {
-    const rect = clipWrapper.getBoundingClientRect();
-    const clipCenterX = rect.left + rect.width / 2;
-    const clipCenterY = rect.top + rect.height / 2;
-    
-    const distance = Math.sqrt(
-      Math.pow(e.clientX - clipCenterX, 2) + 
-      Math.pow(e.clientY - clipCenterY, 2)
-    );
-    
-    // If cursor is within 100px of clip center
-    if (distance < 100) {
-      clipWrapper.querySelector('.binder-clip-nav').classList.add('cursor-near');
-    } else {
-      clipWrapper.querySelector('.binder-clip-nav').classList.remove('cursor-near');
-    }
-  }
+  checkClipProximity(e);
 });
+
+function checkClipProximity(e) {
+  const clipWrapper = document.querySelector('.binder-clip-wrapper');
+  if (!clipWrapper) return;
+  
+  const rect = clipWrapper.getBoundingClientRect();
+  const clipCenterX = rect.left + rect.width / 2;
+  const clipCenterY = rect.top + rect.height / 2;
+  
+  const distance = Math.sqrt(
+    Math.pow(e.clientX - clipCenterX, 2) + 
+    Math.pow(e.clientY - clipCenterY, 2)
+  );
+  
+  if (distance < 120) {
+    clipWrapper.classList.add('cursor-near');
+  } else {
+    clipWrapper.classList.remove('cursor-near');
+  }
+}
 
 window.addEventListener('DOMContentLoaded', positionElements);
 window.addEventListener('resize', positionElements);
