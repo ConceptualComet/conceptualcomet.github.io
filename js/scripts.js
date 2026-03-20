@@ -67,6 +67,26 @@ function revealLayer(layerName) {
       content.style.display = area === activeLeftBottom ? 'block' : 'none';
     }
   });
+
+   // Animate TV and express-yourself only when shrines is active
+  const tv = document.querySelector('.tv');
+  const expressYourself = document.querySelector('.express-yourself');
+  
+  if (tv) {
+    if (activeRight === 'shrines') {
+      tv.classList.add('animate');
+    } else {
+      tv.classList.remove('animate');
+    }
+  }
+  
+  if (expressYourself) {
+    if (activeRight === 'shrines') {
+      expressYourself.classList.add('animate');
+    } else {
+      expressYourself.classList.remove('animate');
+    }
+  }
 }
 
 
