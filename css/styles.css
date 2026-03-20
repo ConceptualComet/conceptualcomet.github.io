@@ -346,7 +346,7 @@ body {
 
 @keyframes pulse-size {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.01); }
+  50% { transform: scale(1.05); }
 }
 
 @keyframes jerky-rock {
