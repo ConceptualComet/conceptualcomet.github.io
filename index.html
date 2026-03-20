@@ -20,16 +20,16 @@
 <div class="music-player" id="music-player">
   <!-- Minimized view -->
   <div class="player-minimized">
-    <canvas class="visualizer" id="visualizer"></canvas>
-    <div class="now-playing">Song Title - Artist</div>
-    <div class="player-controls">
-      <button class="player-btn" onclick="Amplitude.prev()">⏮</button>
-      <button class="player-btn" onclick="Amplitude.playPause()">⏯</button>
-      <button class="player-btn" onclick="Amplitude.next()">⏭</button>
-      <button class="player-btn mute-btn" onclick="toggleMute()">🔊</button>
+  <button class="expand-btn" onclick="togglePlaylist()">□</button>
+  <div class="player-controls">
+    <button class="player-btn" onclick="Amplitude.prev()">⏮</button>
+    <button class="player-btn" onclick="Amplitude.playPause()">⏯</button>
+    <button class="player-btn" onclick="Amplitude.next()">⏭</button>
+    <button class="player-btn mute-btn" onclick="toggleMute()">🔊</button>
     </div>
-    <button class="expand-btn" onclick="togglePlaylist()">▲</button>
-  </div>
+    <div class="now-playing">Song Title - Artist</div>
+    <canvas class="visualizer" id="visualizer"></canvas>
+   </div>
   
   <!-- Expanded playlist view -->
   <div class="player-playlist" id="player-playlist">
