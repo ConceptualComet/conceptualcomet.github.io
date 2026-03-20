@@ -415,6 +415,7 @@ body {
   padding: 1em;
   font-family: serif;
   container-type: inline-size;
+  display: none;  /* hidden by default */
 }
 
 .blog-content article {
