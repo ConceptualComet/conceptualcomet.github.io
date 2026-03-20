@@ -454,6 +454,42 @@ body {
   margin-top: 0.5em;
 }
 
+/* Mobile banner */
+.mobile-banner {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-banner {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: #f5f0e6;
+    border-bottom: 1px solid #000;
+    padding: 8px 16px;
+    font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Adjust content container padding to account for banner */
+  .content-container {
+    padding-top: 100px; /* was 80px, add space for banner */
+  }
+  
+  /* Adjust menu button position */
+  .mobile-menu-btn {
+    top: 40px; /* push down below banner */
+  }
+  
+  .mobile-nav {
+    top: 94px; /* push down below banner + button */
+  }
+}
 
 /* ==================== */
 /* MOBILE LAYOUT        */
