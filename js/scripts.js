@@ -228,6 +228,17 @@ document.addEventListener('click', function(event) {
   }
 });
 
+// Close desktop nav popup when clicking outside
+document.addEventListener('click', function(event) {
+  const navPopup = document.getElementById('nav-popup');
+  
+  if (!navPopup || !navPopup.classList.contains('open')) return;
+  
+  if (!navPopup.contains(event.target)) {
+    closePopup();
+  }
+});
+
 // Cursor sparkle trail
 let sparkleThrottle = 0;
 
