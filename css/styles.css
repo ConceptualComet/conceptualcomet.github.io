@@ -415,14 +415,12 @@ body {
   font-family: serif;
   container-type: inline-size;
   display: none; /* hidden by default */
+  z-index: 30;
   background: rgba(255, 0, 0, 0.3); /* temporary red tint */
 }
 
 
 /* Blog Content */
-.blog-content {
-  z-index: 11;
-}
 
 .blog-content article {
   margin-bottom: 1.5em;
