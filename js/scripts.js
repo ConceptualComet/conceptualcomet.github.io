@@ -109,7 +109,11 @@ function positionNavPopup() {
   const margin = 8;
   const gap = 6;
 
-  // Try to place it to the right of the clip (old Mac-ish dropdown).
+  // Adjustment offsets (tweak these)
+  const adjustLeft = 100;  // negative moves left, positive moves right
+  const adjustTop = 100;    // negative moves up, positive moves down
+
+  // Try to place it to the bottom of the clip (old Mac-ish dropdown).
   let left = clipRect.bottom + gap;
   let top = clipRect.top;
 
