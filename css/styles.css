@@ -387,6 +387,7 @@ body {
   z-index: 2;
   background-image: url(/img/monitor.png);
   animation: jitter-rotate 4s ease-in-out infinite;
+  transform-origin: 30% 30%;
 }
 
 /*Binder Clip */
@@ -428,6 +429,7 @@ body {
   z-index: 8;
   background-image: url(/img/tv.png);
   animation: gentle-rock 4s ease-in-out infinite;
+  transform-origin: 65% 25%;
   animation-play-state: paused;
 }
 
@@ -533,6 +535,7 @@ body {
  z-index: 21;
  background-image: url(/img/be-kind.png);
  animation: pulse-size 3s ease-in-out infinite;
+ transform-origin: 35% 55%;
 }
 
 /* Navigation Popup */
