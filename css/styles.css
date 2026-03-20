@@ -428,7 +428,7 @@ body {
 }
 
 .now-content {
-  transform: rotate(5deg);
+  transform: rotate(-1deg);
 }
 
 .links-content {
@@ -438,7 +438,7 @@ body {
 /* Blog Content */
 
 .blog-content {
-   transform: rotate(-3deg);
+   transform: rotate(3deg);
 }
 
 .blog-content article {
