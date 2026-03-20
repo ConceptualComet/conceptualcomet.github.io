@@ -403,10 +403,10 @@ body {
   background-image: url(/img/splash.png);
 }
 
-.splash-enter {
+.splash-NSFW {
   position: absolute;
   z-index: 25;
-  background-image: url(/img/enter.gif);
+  background-image: url(/img/NSFW.gif);
   background-size: contain;
   background-repeat: no-repeat;
   aspect-ratio: 135 / 83;
@@ -651,7 +651,7 @@ body {
   
   /* Hide all the layered folder stuff */
   .page-layer,
-  .splash-enter,
+  .splash-NSFW,
   .binder-clip-nav {
     display: none !important;
   }
