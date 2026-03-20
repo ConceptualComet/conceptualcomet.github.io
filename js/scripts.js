@@ -4,6 +4,16 @@ const stacks = {
   right: ['colophon', 'curriculum', 'shrines', 'blog', 'splash']
 };
 
+const contentPositions = {
+  'blog-content': { top: 0.191, left: 0.543, width: 0.217, height: 0.569 },
+  'shrines-content': { top: 0.191, left: 0.543, width: 0.20, height: 0.50 },
+  'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.55 },
+  'colophon-content': { top: 0.30, left: 0.55, width: 0.25, height: 0.45 },
+  'now-content': { top: 0.15, left: 0.08, width: 0.25, height: 0.50 },
+  'about-content': { top: 0.12, left: 0.10, width: 0.22, height: 0.45 },
+  'links-content': { top: 0.55, left: 0.08, width: 0.20, height: 0.30 }
+};
+
 function revealLayer(layerName) {
   // Find which stack contains this layer and show/hide appropriately
   for (const [stackName, layers] of Object.entries(stacks)) {
@@ -19,12 +29,15 @@ function revealLayer(layerName) {
     });
   }
 
-  // Show blog-content only when blog is the top layer
-  const blogContent = document.querySelector('.blog-content');
-  if (blogContent) {
-    blogContent.style.display = layerName === 'blog' ? 'block' : 'none';
-  }
-}  
+ // Show only the matching content area
+  const contentAreas = ['blog', 'shrines', 'curriculum', 'colophon', 'now', 'about', 'links'];
+  contentAreas.forEach(area => {
+    const content = document.querySelector('.' + area + '-content');
+    if (content) {
+      content.style.display = area === layerName ? 'block' : 'none';
+    }
+  });
+}
 
 
 function resetJournal() {
@@ -70,16 +83,18 @@ if (splashEnter) {
   splashEnter.style.width = (renderedWidth * 0.10) + 'px';
 }
 
-// Position blog content
-const blogContent = document.querySelector('.blog-content');
-if (blogContent) {
-  blogContent.style.top = (offsetY + renderedHeight * 0.191) + 'px';
-  blogContent.style.left = (offsetX + renderedWidth * 0.543) + 'px';
-  blogContent.style.width = (renderedWidth * 0.217) + 'px';
-  blogContent.style.height = (renderedHeight * 0.569) + 'px';
+//Position content blocks
+for (const [className, pos] of Object.entries(contentPositions)) {
+  const el = document.querySelector('.' + className);
+  if (el) {
+    el.style.top = (offsetY + renderedHeight * pos.top) + 'px';
+    el.style.left = (offsetX + renderedWidth * pos.left) + 'px';
+    el.style.width = (renderedWidth * pos.width) + 'px';
+    el.style.height = (renderedHeight * pos.height) + 'px';
+  }
 }
 
-// Position binder clip nav
+// Position binder clip
 const binderClip = document.querySelector('.binder-clip-nav');
 if (binderClip) {
   binderClip.style.top = (offsetY + renderedHeight * 0.106) + 'px';
@@ -89,6 +104,7 @@ if (binderClip) {
 }
 }
 
+//Control pop-up nav menu
 function openPopup(event) {
   const navPopup = document.getElementById('nav-popup');
   if (!navPopup) return;
@@ -130,8 +146,6 @@ function closePopup() {
 
 window.addEventListener('DOMContentLoaded', positionElements);
 window.addEventListener('resize', positionElements);
-
-
 window.addEventListener('DOMContentLoaded', () => {
 //   if (sessionStorage.getItem('ageVerified')) {
 //     resetJournal();
