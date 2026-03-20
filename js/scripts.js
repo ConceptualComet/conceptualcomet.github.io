@@ -136,6 +136,8 @@ if (binderClip) {
 
 //Control pop-up nav menu
 function openPopup(event) {
+  event.stopPropagation(); // blocks click from reaching event listener and immediately closing popup
+  
   const navPopup = document.getElementById('nav-popup');
   if (!navPopup) return;
   
@@ -173,6 +175,18 @@ function closePopup() {
 }
 
 // On page load
+
+// Close nav menu if clicked outside popup
+document.addEventListener('click', function(event) {
+  const navPopup = document.getElementById('nav-popup');
+  
+  if (!navPopup || !navPopup.classList.contains('open')) return;
+  
+  // If click is outside popup, close it
+  if (!navPopup.contains(event.target)) {
+    closePopup();
+  }
+});
 
 window.addEventListener('DOMContentLoaded', positionElements);
 window.addEventListener('resize', positionElements);
