@@ -189,6 +189,14 @@ function closeMobileNav() {
   }
 }
 
+function scrollToSection(className) {
+  const section = document.querySelector('.' + className);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+  closeMobileNav();
+}
+
 // Close mobile nav when clicking outside
 document.addEventListener('click', function(event) {
   const nav = document.getElementById('mobile-nav');
@@ -198,20 +206,6 @@ document.addEventListener('click', function(event) {
   
   if (!nav.contains(event.target) && event.target !== btn && !btn.contains(event.target)) {
     closeMobileNav();
-  }
-});
-
-// On page load
-
-// Close nav menu if clicked outside popup
-document.addEventListener('click', function(event) {
-  const navPopup = document.getElementById('nav-popup');
-  
-  if (!navPopup || !navPopup.classList.contains('open')) return;
-  
-  // If click is outside popup, close it
-  if (!navPopup.contains(event.target)) {
-    closePopup();
   }
 });
 
