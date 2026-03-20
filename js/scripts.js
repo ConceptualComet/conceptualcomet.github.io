@@ -95,62 +95,35 @@ if (binderClip) {
   }
 }
 
-// Navigation Popup Functions
-function positionNavPopup() {
-  const binderClip = document.querySelector('.binder-clip-nav');
-  const navPopup = document.getElementById('nav-popup');
-  if (!binderClip || !navPopup) return;
-
-  // Recalculate rendered folder size
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const folderWidth = 1366;
-  const folderHeight = 768;
-  const folderRatio = folderWidth / folderHeight;
-  const viewportRatio = vw / vh;
-
-  let renderedWidth, renderedHeight;
-  if (viewportRatio > folderRatio) {
-    renderedHeight = vh;
-    renderedWidth = vh * folderRatio;
-  } else {
-    renderedWidth = vw;
-    renderedHeight = vw / folderRatio;
-  }
-
-  const clipRect = binderClip.getBoundingClientRect();
-  const popupRect = navPopup.getBoundingClientRect();
-  const margin = 8;
-  const gap = 6;
-
-  // Adjustment offsets as ratios (tweak these)
-  const adjustLeft = renderedWidth * 0.798;
-  const adjustTop = renderedHeight * 0.106;
-
-  // Place it below the clip
-  let top = clipRect.bottom + gap + adjustTop;
-  let left = clipRect.left + adjustLeft;
-
-  // If it would overflow to the right, shift it left
-  if (left + popupRect.width > window.innerWidth - margin) {
-    left = window.innerWidth - popupRect.width - margin;
-  }
-
-  // If it would overflow the bottom, flip it above the clip
-  if (top + popupRect.height > window.innerHeight - margin) {
-    top = clipRect.top - gap - popupRect.height;
-  }
-
-  navPopup.style.left = left + 'px';
-  navPopup.style.top = top + 'px';
-}
-
-function openPopup() {
+function openPopup(event) {
   const navPopup = document.getElementById('nav-popup');
   if (!navPopup) return;
+  
+  const margin = 8;
+  
+  // Position at cursor
+  let left = event.clientX;
+  let top = event.clientY;
+  
   navPopup.classList.add('open');
-  // Wait one frame so the element is measurable.
-  requestAnimationFrame(positionNavPopup);
+  
+  // Wait a frame so we can measure the popup
+  requestAnimationFrame(() => {
+    const popupRect = navPopup.getBoundingClientRect();
+    
+    // If it would overflow right, shift left
+    if (left + popupRect.width > window.innerWidth - margin) {
+      left = window.innerWidth - popupRect.width - margin;
+    }
+    
+    // If it would overflow bottom, shift up
+    if (top + popupRect.height > window.innerHeight - margin) {
+      top = window.innerHeight - popupRect.height - margin;
+    }
+    
+    navPopup.style.left = left + 'px';
+    navPopup.style.top = top + 'px';
+  });
 }
 
 function closePopup() {
