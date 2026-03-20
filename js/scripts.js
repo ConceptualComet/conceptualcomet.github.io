@@ -125,12 +125,11 @@ for (const [className, pos] of Object.entries(contentPositions)) {
 }
 
 // Position binder clip
-const binderClip = document.querySelector('.binder-clip-nav');
-if (binderClip) {
-  binderClip.style.top = (offsetY + renderedHeight * 0.106) + 'px';
-  binderClip.style.left = (offsetX + renderedWidth * 0.798) + 'px';
-  binderClip.style.width = (renderedWidth * 0.092) + 'px';
-  binderClip.style.height = 'auto';
+const binderWrapper = document.querySelector('.binder-clip-wrapper');
+if (binderWrapper) {
+  binderWrapper.style.top = (offsetY + renderedHeight * 0.106) + 'px';
+  binderWrapper.style.left = (offsetX + renderedWidth * 0.798) + 'px';
+  binderWrapper.style.width = (renderedWidth * 0.092) + 'px';
 }
 }
 
@@ -206,6 +205,45 @@ document.addEventListener('click', function(event) {
   
   if (!nav.contains(event.target) && event.target !== btn && !btn.contains(event.target)) {
     closeMobileNav();
+  }
+});
+
+// Cursor sparkle trail
+document.addEventListener('mousemove', function(e) {
+  // Create sparkle
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.style.left = (e.clientX - 4) + 'px';
+  sparkle.style.top = (e.clientY - 4) + 'px';
+  
+  const container = document.getElementById('sparkle-container');
+  if (container) {
+    container.appendChild(sparkle);
+    
+    // Remove after animation
+    setTimeout(() => {
+      sparkle.remove();
+    }, 800);
+  }
+  
+  // Check proximity to binder clip
+  const clipWrapper = document.querySelector('.binder-clip-wrapper');
+  if (clipWrapper) {
+    const rect = clipWrapper.getBoundingClientRect();
+    const clipCenterX = rect.left + rect.width / 2;
+    const clipCenterY = rect.top + rect.height / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(e.clientX - clipCenterX, 2) + 
+      Math.pow(e.clientY - clipCenterY, 2)
+    );
+    
+    // If cursor is within 100px of clip center
+    if (distance < 100) {
+      clipWrapper.querySelector('.binder-clip-nav').classList.add('cursor-near');
+    } else {
+      clipWrapper.querySelector('.binder-clip-nav').classList.remove('cursor-near');
+    }
   }
 });
 
