@@ -341,7 +341,7 @@ body {
 
 @keyframes jitter-rotate {
   0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(-3px, 2px) rotate(-1deg); }
+  100% { transform: translate(-3px, 2px) rotate(-3deg); }
 }
 
 @keyframes pulse-size {
@@ -376,7 +376,7 @@ body {
 .monitor-sticker {
   z-index: 2;
   background-image: url(/img/monitor.png);
-  animation: jitter-rotate 0.8s steps(2) infinite;
+  animation: jitter-rotate 0.5s steps(2) infinite;
   transform-origin: 30% 30%;
 }
 
@@ -525,7 +525,7 @@ body {
  z-index: 21;
  background-image: url(/img/be-kind.png);
  animation: pulse-size .5s steps(3) infinite;
- transform-origin: 35% 55%;
+ transform-origin: 35% 60%;
 }
 
 /* Navigation Popup */
