@@ -101,23 +101,37 @@ function positionNavPopup() {
   const navPopup = document.getElementById('nav-popup');
   if (!binderClip || !navPopup) return;
 
-  // The popup is `display: block` only when `.open` is set,
-  // so this should run after opening (or it will measure 0x0).
+  // Recalculate rendered folder size
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const folderWidth = 1366;
+  const folderHeight = 768;
+  const folderRatio = folderWidth / folderHeight;
+  const viewportRatio = vw / vh;
+
+  let renderedWidth, renderedHeight;
+  if (viewportRatio > folderRatio) {
+    renderedHeight = vh;
+    renderedWidth = vh * folderRatio;
+  } else {
+    renderedWidth = vw;
+    renderedHeight = vw / folderRatio;
+  }
+
   const clipRect = binderClip.getBoundingClientRect();
   const popupRect = navPopup.getBoundingClientRect();
-
   const margin = 8;
   const gap = 6;
 
-  // Adjustment offsets (tweak these)
-  const adjustLeft = 100;  // negative moves left, positive moves right
-  const adjustTop = 100;    // negative moves up, positive moves down
+  // Adjustment offsets as ratios (tweak these)
+  const adjustLeft = renderedWidth * 0.798;
+  const adjustTop = renderedHeight * 0.106;
 
-  // Try to place it to the bottom of the clip (old Mac-ish dropdown).
-  let left = clipRect.bottom + gap + adjustTop;
-  let top = clipRect.top + adjustLeft;
+  // Place it below the clip
+  let top = clipRect.bottom + gap + adjustTop;
+  let left = clipRect.left + adjustLeft;
 
- // If it would overflow to the right, shift it left
+  // If it would overflow to the right, shift it left
   if (left + popupRect.width > window.innerWidth - margin) {
     left = window.innerWidth - popupRect.width - margin;
   }
