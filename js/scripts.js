@@ -5,7 +5,7 @@ const stacks = {
 };
 
 const contentPositions = {
-  'blog-content': { top: 0.191, left: 0.543, width: 0.19, height: 0.569 },
+  'blog-content': { top: 0.191, left: 0.543, width: 0.20, height: 0.565 },
   'shrines-content': { top: 0.20, left: 0.5, width: 0.19, height: 0.54 },
   'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.54 },
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.54 },
