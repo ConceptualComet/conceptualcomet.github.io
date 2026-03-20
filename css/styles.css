@@ -407,15 +407,20 @@ body {
   border: 0;
 }
 
-/* Blog Content */
-.blog-content {
+/* Shared base class for content blocks */
+.page-content {
   position: absolute;
-  z-index: 11;
   overflow-y: auto;
   padding: 1em;
   font-family: serif;
   container-type: inline-size;
-  display: none;  /* hidden by default */
+  display: none; /* hidden by default */
+}
+
+
+/* Blog Content */
+.blog-content {
+  z-index: 11;
 }
 
 .blog-content article {
