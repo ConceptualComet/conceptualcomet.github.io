@@ -67,6 +67,9 @@ body {
 
 /* Binder clip sparkles */
 .binder-clip-nav {
+  display: block;
+  width: 100%;
+  height: auto; 
   position: absolute;
   z-index: 50;
   cursor: pointer;
@@ -271,10 +274,9 @@ body {
 } */
 
 /*Binder Clip */
-.binder-clip-nav {
+.binder-clip-wrapper {
   position: absolute;
   z-index: 50;
-  cursor: pointer;
 }
 
 .binder-clip-nav:hover {
