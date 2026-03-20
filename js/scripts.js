@@ -15,10 +15,12 @@ const contentPositions = {
 };
 
 const rightContentAreas = ['blog', 'shrines', 'curriculum', 'colophon'];
-const leftContentAreas = ['now', 'about', 'links'];
+const leftTopContentAreas = ['about'];
+const leftBottomContentAreas = ['now', 'links'];
 
-let activeRight = 'splash';  // track active layer per side
-let activeLeft = 'sunita';
+let activeRight = 'splash';
+let activeLeftTop = 'earthrise';
+let activeLeftBottom = 'sunita';
 
 function revealLayer(layerName) {
   for (const [stackName, layers] of Object.entries(stacks)) {
@@ -32,15 +34,17 @@ function revealLayer(layerName) {
       });
     });
 
-    // Track which layer is active per side
+    // Track which layer is active per stack
     if (stackName === 'right') {
       activeRight = layerName;
-    } else if (stackName === 'leftTop' || stackName === 'leftBottom') {
-      activeLeft = layerName;
+    } else if (stackName === 'leftTop') {
+      activeLeftTop = layerName;
+    } else if (stackName === 'leftBottom') {
+      activeLeftBottom = layerName;
     }
   }
 
-  // Show content for active layer on each side
+  // Show content for active layer on right side
   rightContentAreas.forEach(area => {
     const content = document.querySelector('.' + area + '-content');
     if (content) {
@@ -48,10 +52,19 @@ function revealLayer(layerName) {
     }
   });
 
-  leftContentAreas.forEach(area => {
+  // Show content for active layer on left top
+  leftTopContentAreas.forEach(area => {
     const content = document.querySelector('.' + area + '-content');
     if (content) {
-      content.style.display = area === activeLeft ? 'block' : 'none';
+      content.style.display = area === activeLeftTop ? 'block' : 'none';
+    }
+  });
+
+  // Show content for active layer on left bottom
+  leftBottomContentAreas.forEach(area => {
+    const content = document.querySelector('.' + area + '-content');
+    if (content) {
+      content.style.display = area === activeLeftBottom ? 'block' : 'none';
     }
   });
 }
