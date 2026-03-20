@@ -110,7 +110,7 @@ function positionNavPopup() {
   const gap = 6;
 
   // Try to place it to the right of the clip (old Mac-ish dropdown).
-  let left = clipRect.right + gap;
+  let left = clipRect.bottom + gap;
   let top = clipRect.top;
 
   // If it would overflow to the right, flip it to the left.
@@ -118,8 +118,10 @@ function positionNavPopup() {
     left = clipRect.left - gap - popupRect.width;
   }
 
-  // Clamp vertically to keep it on-screen.
-  top = Math.max(margin, Math.min(top, window.innerHeight - popupRect.height - margin));
+    // If it would overflow the bottom, flip it above the clip
+  if (top + popupRect.height > window.innerHeight - margin) {
+    top = clipRect.top - gap - popupRect.height;
+  }
 
   navPopup.style.left = left + 'px';
   navPopup.style.top = top + 'px';
