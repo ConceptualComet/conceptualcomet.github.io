@@ -5,11 +5,11 @@ const stacks = {
 };
 
 const contentPositions = {
-  'blog-content': { top: 0.191, left: 0.543, width: 0.2, height: 0.569 },
-  'shrines-content': { top: 0.191, left: 0.543, width: 0.20, height: 0.50 },
-  'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.55 },
-  'colophon-content': { top: 0.30, left: 0.55, width: 0.25, height: 0.45 },
-  'now-content': { top: 0.15, left: 0.08, width: 0.25, height: 0.50 },
+  'blog-content': { top: 0.191, left: 0.543, width: 0.18, height: 0.569 },
+  'shrines-content': { top: 0.20, left: 0.6, width: 0.15, height: 0.54 },
+  'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.54 },
+  'colophon-content': { top: 0.12, left: 0.50, width: 0.20, height: 0.45 },
+  'now-content': { top: 0.55, left: 0.08, width: 0.25, height: 0.30 },
   'about-content': { top: 0.12, left: 0.10, width: 0.22, height: 0.45 },
   'links-content': { top: 0.55, left: 0.08, width: 0.20, height: 0.30 }
 };
