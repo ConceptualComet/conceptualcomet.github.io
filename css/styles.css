@@ -33,6 +33,141 @@ body {
   font-style: normal;
 }
 
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 200;
+  font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
+  font-size: 12px;
+  background: linear-gradient(180deg, #ff71ce 0%, #01cdfe 50%, #05ffa1 100%);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  min-width: 200px;
+}
+
+.player-minimized {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.visualizer {
+  width: 100%;
+  height: 30px;
+  background: #000;
+  border: 1px solid #000;
+}
+
+.now-playing {
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.player-btn {
+  width: 32px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: inset -1px -1px 0 #808080;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.player-btn:active {
+  box-shadow: inset 1px 1px 0 #808080;
+}
+
+.expand-btn {
+  width: 100%;
+  height: 16px;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-size: 8px;
+}
+
+/* Playlist panel */
+.player-playlist {
+  display: none;
+  border-top: 1px solid #000;
+  background: rgba(0, 0, 0, 0.8);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.player-playlist.open {
+  display: block;
+}
+
+.playlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background: linear-gradient(180deg, #fff 0%, #fff 45%, #000 45%, #000 55%, #fff 55%, #fff 100%);
+  background-size: 100% 6px;
+  border-bottom: 1px solid #000;
+}
+
+.playlist-header span {
+  background: #fff;
+  padding: 0 4px;
+  font-weight: bold;
+}
+
+.playlist-header button {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-size: 8px;
+  padding: 0;
+}
+
+.playlist-tracks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.playlist-track {
+  padding: 6px 8px;
+  color: #01cdfe;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+.playlist-track:hover {
+  background: rgba(1, 205, 254, 0.2);
+}
+
+.playlist-track.amplitude-active-song-container {
+  color: #ff71ce;
+  background: rgba(255, 113, 206, 0.2);
+}
+
+/* Hide on mobile */
+@media (max-width: 768px) {
+  .music-player {
+    display: none;
+  }
+}
+
 /* Cursor sparkle trail */
 .sparkle-container {
   position: fixed;
