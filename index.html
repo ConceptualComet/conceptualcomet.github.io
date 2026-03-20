@@ -133,5 +133,83 @@
     <p>LINKS</p>
 </div>
 
+<!-- Mobile Layout -->
+<div class="mobile-wrapper">
+  
+  <section class="mobile-section" id="mobile-home">
+    <h2>The Perihelion Papers</h2>
+    <p>Welcome to the collected works of a conceptual comet...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-blog">
+    <h2>Blog</h2>
+    <div class="blog-content-mobile">
+      <!-- Blog content here -->
+      <article>
+        <time datetime="2025-02-20T14:30:00">February 20, 2025 · 2:30pm</time>
+        <p>My blog post goes here...</p>
+      </article>
+    </div>
+  </section>
+  
+  <section class="mobile-section" id="mobile-now">
+    <h2>Now</h2>
+    <p>What I'm currently focused on...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-about">
+    <h2>About</h2>
+    <p>About me content...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-curriculum">
+    <h2>Curriculum</h2>
+    <p>My learning journey...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-shrines">
+    <h2>Shrines</h2>
+    <p>Things I love...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-links">
+    <h2>Links</h2>
+    <p>Blogroll and bookmarks...</p>
+  </section>
+  
+  <section class="mobile-section" id="mobile-colophon">
+    <h2>Colophon</h2>
+    <p>How this site was made...</p>
+  </section>
+  
+</div>
+
+<!-- Mobile Menu Button -->
+<button class="mobile-menu-btn" onclick="toggleMobileNav()" aria-label="Open menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Mobile Navigation -->
+<nav class="mobile-nav" id="mobile-nav">
+  <div class="mobile-nav-titlebar">
+    <span>Navigation</span>
+    <button onclick="closeMobileNav()">×</button>
+  </div>
+  <ul>
+    <li><a href="#mobile-home" onclick="closeMobileNav()">Home</a></li>
+    <li><a href="#mobile-blog" onclick="closeMobileNav()">Blog</a></li>
+    <li><a href="#mobile-now" onclick="closeMobileNav()">Now</a></li>
+    <hr>
+    <li><a href="#mobile-about" onclick="closeMobileNav()">About</a></li>
+    <li><a href="#mobile-curriculum" onclick="closeMobileNav()">Curriculum</a></li>
+    <li><a href="#mobile-shrines" onclick="closeMobileNav()">Shrines</a></li>
+    <hr>
+    <li><a href="#mobile-links" onclick="closeMobileNav()">Links</a></li>
+    <li><a href="#mobile-colophon" onclick="closeMobileNav()">Colophon</a></li>
+  </ul>
+</nav>
+
 </body>
 </html>
