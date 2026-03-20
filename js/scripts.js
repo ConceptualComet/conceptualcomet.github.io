@@ -260,7 +260,7 @@ function checkClipProximity(e) {
     Math.pow(e.clientY - clipCenterY, 2)
   );
   
-  if (distance < 120) {
+  if (distance < 170) {
     clipWrapper.classList.add('cursor-near');
   } else {
     clipWrapper.classList.remove('cursor-near');
