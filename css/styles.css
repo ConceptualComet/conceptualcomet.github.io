@@ -424,21 +424,21 @@ body {
 }
 
 .about-content {
-  transform: rotate(10deg);
+  transform: rotate(1deg);
 }
 
 .now-content {
-  transform: rotate(10deg);
+  transform: rotate(5deg);
 }
 
 .links-content {
-  transform: rotate(25deg);
+  transform: rotate(-25deg);
 }
 
 /* Blog Content */
 
 .blog-content {
-   transform: rotate(10deg);
+   transform: rotate(-5deg);
 }
 
 .blog-content article {
