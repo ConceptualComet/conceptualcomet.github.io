@@ -9,7 +9,7 @@ const contentPositions = {
   'shrines-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
   'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.54 },
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.69 },
-  'now-content': { top: 0.6, left: 0.22, width: 0.17, height: 0.19 },
+  'now-content': { top: 0.6, left: 0.22, width: 0.18, height: 0.185 },
   'about-content': { top: 0.20, left: 0.20, width: 0.10, height: 0.20 },
   'links-content': { top: 0.55, left: 0.28, width: 0.10, height: 0.20 }
 };
