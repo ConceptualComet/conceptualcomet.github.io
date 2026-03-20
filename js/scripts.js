@@ -174,6 +174,33 @@ function closePopup() {
   navPopup.classList.remove('open');
 }
 
+// Mobile navigation
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  if (nav) {
+    nav.classList.toggle('open');
+  }
+}
+
+function closeMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  if (nav) {
+    nav.classList.remove('open');
+  }
+}
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', function(event) {
+  const nav = document.getElementById('mobile-nav');
+  const btn = document.querySelector('.mobile-menu-btn');
+  
+  if (!nav || !nav.classList.contains('open')) return;
+  
+  if (!nav.contains(event.target) && event.target !== btn && !btn.contains(event.target)) {
+    closeMobileNav();
+  }
+});
+
 // On page load
 
 // Close nav menu if clicked outside popup
