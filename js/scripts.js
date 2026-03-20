@@ -5,7 +5,7 @@ const stacks = {
 };
 
 const contentPositions = {
-  'blog-content': { top: 0.191, left: 0.543, width: 0.217, height: 0.569 },
+  'blog-content': { top: 0.191, left: 0.543, width: 0.2, height: 0.569 },
   'shrines-content': { top: 0.191, left: 0.543, width: 0.20, height: 0.50 },
   'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.55 },
   'colophon-content': { top: 0.30, left: 0.55, width: 0.25, height: 0.45 },
@@ -14,27 +14,44 @@ const contentPositions = {
   'links-content': { top: 0.55, left: 0.08, width: 0.20, height: 0.30 }
 };
 
+const rightContentAreas = ['blog', 'shrines', 'curriculum', 'colophon'];
+const leftContentAreas = ['now', 'about', 'links'];
+
+let activeRight = 'splash';  // track active layer per side
+let activeLeft = 'sunita';
+
 function revealLayer(layerName) {
-  // Find which stack contains this layer and show/hide appropriately
   for (const [stackName, layers] of Object.entries(stacks)) {
     const layerIndex = layers.indexOf(layerName);
     if (layerIndex === -1) continue;
     
-    // Show this layer and everything below it, hide everything above
     layers.forEach((layer, index) => {
       const elements = document.querySelectorAll(`[data-layer="${layer}"]`);
       elements.forEach(el => {
         el.style.display = index <= layerIndex ? 'block' : 'none';
       });
     });
+
+    // Track which layer is active per side
+    if (stackName === 'right') {
+      activeRight = layerName;
+    } else if (stackName === 'leftTop' || stackName === 'leftBottom') {
+      activeLeft = layerName;
+    }
   }
 
- // Show only the matching content area
-  const contentAreas = ['blog', 'shrines', 'curriculum', 'colophon', 'now', 'about', 'links'];
-  contentAreas.forEach(area => {
+  // Show content for active layer on each side
+  rightContentAreas.forEach(area => {
     const content = document.querySelector('.' + area + '-content');
     if (content) {
-      content.style.display = area === layerName ? 'block' : 'none';
+      content.style.display = area === activeRight ? 'block' : 'none';
+    }
+  });
+
+  leftContentAreas.forEach(area => {
+    const content = document.querySelector('.' + area + '-content');
+    if (content) {
+      content.style.display = area === activeLeft ? 'block' : 'none';
     }
   });
 }
