@@ -209,7 +209,7 @@ let isMuted = false;
 function toggleMute() {
   isMuted = !isMuted;
   Amplitude.setVolume(isMuted ? 0 : 80);
-  document.querySelector('.mute-btn').textContent = isMuted ? '🔇' : '🔊';
+  document.querySelector('.mute-btn').textContent = isMuted ? '✕' : '♫';
 }
 
 // Visualizer
