@@ -41,9 +41,9 @@ body {
   z-index: 200;
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
-  background: linear-gradient(180deg, #ff71ce 0%, #01cdfe 50%, #05ffa1 100%);
-  border: 2px solid #000;
-  box-shadow: 0 -3px 0 #000;
+  background: #000;
+  border: 2px solid #ff71ce;
+  box-shadow: 0 -3px 0 #ff71ce;
 }
 
 .player-minimized {
@@ -65,7 +65,7 @@ body {
 }
 
 .now-playing {
-  color: #000;
+  color: #ff71ce;
   font-weight: bold;
   padding: 4px 8px;
   background: rgba(255, 255, 255, 0.3);
@@ -86,7 +86,7 @@ body {
   width: 24px;
   height: 24px;
   background: #fff;
-  border: 1px solid #000;
+  border: 1px solid #ff71ce;
   cursor: pointer;
   font-size: 10px;
   flex-shrink: 0;
@@ -96,7 +96,7 @@ body {
   width: 32px;
   height: 24px;
   background: #fff;
-  border: 1px solid #000;
+  border: 1px solid #ff71ce;
   box-shadow: inset -1px -1px 0 #808080;
   cursor: pointer;
   font-size: 10px;
@@ -110,7 +110,7 @@ body {
 /* Playlist panel */
 .player-playlist {
   display: none;
-  border-top: 1px solid #000;
+  border-top: 1px solid #ff71ce;
   background: rgba(0, 0, 0, 0.8);
   max-height: 150px;
   overflow-y: auto;
