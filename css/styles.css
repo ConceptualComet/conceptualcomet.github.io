@@ -41,7 +41,7 @@ body {
   z-index: 200;
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
-  font-color: #fc6a28;
+  color: #fc6a28;
   background: #2f2c48;
   border: 0 1px 0 solid #fc6a28;
   box-shadow: 0 -3px 0 #000;
@@ -77,7 +77,7 @@ body {
 }
 
 .player-controls {
-  font-color: #fc6a28;
+color: #fc6a28;
   display: flex;
   gap: 4px;
   flex-shrink: 0;
