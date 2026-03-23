@@ -97,6 +97,17 @@ function resetJournal() {
   revealLayer('splash');
 }
 
+// Star navigation positions
+// Adjust these ratios based on where you wrote the words on your folder
+const starPositions = {
+  'blog-star':       { top: 0.15, left: 0.82 },
+  'shrines-star':    { top: 0.25, left: 0.82 },
+  'curriculum-star': { top: 0.35, left: 0.82 },
+  'colophon-star':   { top: 0.45, left: 0.82 },
+  'now-star':        { top: 0.55, left: 0.15 },
+  'about-star':      { top: 0.65, left: 0.15 },
+  'links-star':      { top: 0.75, left: 0.15 }
+};
 
 function positionElements() {
   const vw = window.innerWidth;
@@ -140,13 +151,14 @@ for (const [className, pos] of Object.entries(contentPositions)) {
   }
 }
 
-// Position blog star
-const blogStarWrapper = document.querySelector('.blog-star-wrapper');
-if (blogStarWrapper) {
-  blogStarWrapper.style.top = (offsetY + renderedHeight * 0.106) + 'px';
-  blogStarWrapper.style.left = (offsetX + renderedWidth * 0.798) + 'px';
-  blogStarWrapper.style.width = (renderedWidth * 0.092) + 'px';
-}
+ // Position star navigation
+  for (const [className, pos] of Object.entries(starPositions)) {
+    const el = document.querySelector('.' + className);
+    if (el) {
+      el.style.top = (offsetY + renderedHeight * pos.top) + 'px';
+      el.style.left = (offsetX + renderedWidth * pos.left) + 'px';
+    }
+  }
 }
 
 // Mobile navigation
