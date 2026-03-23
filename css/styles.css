@@ -278,7 +278,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: -2;
   overflow: hidden;
 }
 
@@ -432,8 +432,14 @@ body {
 
 /* Folder */
 .folder {
-  z-index: 1;
+  z-index: -1;
   background-image: url(/img/folder.png);
+}
+
+/* Nav Menu */
+.nav-menu {
+ z-index: 1;
+ background-image: url(/img/nav-menu.png);
 }
 
 /* Monitor Sticker */
