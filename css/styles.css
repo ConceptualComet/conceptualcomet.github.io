@@ -241,10 +241,9 @@ body {
 .star-label {
   position: absolute;
   top: 50%;
-  right: 100%;
+  left: 100%;
   transform: translateY(-50%);
-  margin-right: 8px;
-  direction: rtl; /* Makes text reveal from right */
+  margin-left: 8px;
   font-family: "Courier New", monospace; 
   font-size: 1rem;
   color: #fff;
