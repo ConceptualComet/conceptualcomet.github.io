@@ -76,6 +76,7 @@ body {
 }
 
 .player-controls {
+  color: #fc6a28;
   display: flex;
   gap: 4px;
   flex-shrink: 0;
