@@ -281,7 +281,7 @@ for (let i = 0; i < bufferLength; i++) {
   
   const gradient = ctx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
   gradient.addColorStop(0, '#01cdfe');  // cyan at bottom
-  gradient.addColorStop(1, '##fc6a28');  // orange at top
+  gradient.addColorStop(1, '#fc6a28');  // orange at top
   
   ctx.fillStyle = gradient;
   ctx.fillRect(x, canvas.height - barHeight, barWidth - 1, barHeight);
