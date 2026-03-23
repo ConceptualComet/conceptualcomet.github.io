@@ -175,7 +175,7 @@ body {
 
 /* Star wrappers */
 .blog-star-wrapper {
-  background-image: url(/img/blog.png);
+  background-image: url(/img/blog-star.png);
   position: absolute;
   cursor: pointer;
   z-index: 50;
