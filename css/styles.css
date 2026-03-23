@@ -60,7 +60,8 @@ body {
   width: 150px;
   height: 24px;
   background: #000;
-  border: 1px solid #000;
+  border: 2px solid #39ff14;
+  box-shadow: 0 0 8px #39ff14;
   flex-shrink: 0;
 }
 
@@ -279,7 +280,7 @@ body {
 /* Labels on the right side (for stars on the left edge) */
 .links-star .star-label,
 .about-star .star-label,
-.now-star .star-label, {
+.now-star .star-label {
   right: auto;
   left: 100%;
   margin-right: 0;

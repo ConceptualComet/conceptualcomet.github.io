@@ -266,13 +266,9 @@ function initVisualizer() {
     
     for (let i = 0; i < bufferLength; i++) {
       const barHeight = (dataArray[i] / 255) * canvas.height;
-      
-      const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
-      gradient.addColorStop(0, '#01cdfe');
-      gradient.addColorStop(0.5, '#ff71ce');
-      gradient.addColorStop(1, '#05ffa1');
-      
-      ctx.fillStyle = gradient;
+
+      // Debug colors: high contrast so we can verify drawing.
+      ctx.fillStyle = '#39ff14';
       ctx.fillRect(x, canvas.height - barHeight, barWidth - 1, barHeight);
       x += barWidth;
     }
