@@ -239,7 +239,7 @@ function initVisualizer() {
   }
   
   // Get Amplitude's audio element
-  const audio = document.querySelector('audio');
+const audio = Amplitude.getAudio();
   if (!audio) {
     console.log('No audio element found');
     return false;
