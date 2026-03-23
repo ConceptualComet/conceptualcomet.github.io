@@ -60,8 +60,8 @@ body {
   width: 150px;
   height: 24px;
   background: #000;
-  border: 2px solid #39ff14;
-  box-shadow: 0 0 8px #39ff14;
+  border: 2px solid #ff71ce;
+  box-shadow: 0 0 8px #ff71ce;
   flex-shrink: 0;
 }
 
