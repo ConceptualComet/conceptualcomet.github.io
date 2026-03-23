@@ -264,32 +264,82 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
   
   // Initialize Amplitude after page loads
-  Amplitude.init({
-    songs: [
-      {
-        name: "Song One",
-        artist: "Artist Name",
-        url: "/audio/song1.mp3"
-      },
-      {
-        name: "Song Two",
-        artist: "Artist Name",
-        url: "/audio/song2.mp3"
-      },
-      {
-        name: "Song Three",
-        artist: "Artist Name",
-        url: "/audio/song3.mp3"
-      }
-    ],
-    callbacks: {
-      song_change: function() {
-        const meta = Amplitude.getActiveSongMetadata();
-        document.querySelector('.now-playing').textContent = 
-          meta.name + ' - ' + meta.artist;
-      }
+Amplitude.init({
+  songs: [
+    {
+      name: "Beauty Flow",
+      artist: "Kevin MacLeod",
+      url: "/audio/Beauty-Flow.mp3"
+    },
+    {
+      name: "Bleeping Demo",
+      artist: "Kevin MacLeod",
+      url: "/audio/Bleeping-Demo.mp3"
+    },
+    {
+      name: "Blippy Trance",
+      artist: "Kevin MacLeod",
+      url: "/audio/Blippy-Trance.mp3"
+    },
+    {
+      name: "Cipher2",
+      artist: "Kevin MacLeod",
+      url: "/audio/Cipher2.mp3"
+    },
+    {
+      name: "Cloud Dancer",
+      artist: "Kevin MacLeod",
+      url: "/audio/Cloud-Dancer.mp3"
+    },
+    {
+      name: "Delightful D",
+      artist: "Kevin MacLeod",
+      url: "/audio/Delightful-D.mp3"
+    },
+    {
+      name: "Equatorial Complex",
+      artist: "Kevin MacLeod",
+      url: "/audio/Equatorial-Complex.mp3"
+    },
+    {
+      name: "Killing Time",
+      artist: "Kevin MacLeod",
+      url: "/audio/Killing-Time.mp3"
+    },
+    {
+      name: "Laser Groove",
+      artist: "Kevin MacLeod",
+      url: "/audio/Laser-Groove.mp3"
+    },
+    {
+      name: "Limit 70",
+      artist: "Kevin MacLeod",
+      url: "/audio/Limit-70.mp3"
+    },
+    {
+      name: "Newer Wave",
+      artist: "Kevin MacLeod",
+      url: "/audio/Newer-Wave.mp3"
+    },
+    {
+      name: "Show Your Moves",
+      artist: "Kevin MacLeod",
+      url: "/audio/Show-Your-Moves.mp3"
+    },
+    {
+      name: "Voxel Revolution",
+      artist: "Kevin MacLeod",
+      url: "/audio/Voxel-Revolution.mp3"
     }
-  });
+  ],
+  callbacks: {
+    song_change: function() {
+      const meta = Amplitude.getActiveSongMetadata();
+      document.querySelector('.now-playing').textContent = 
+        meta.name + ' - ' + meta.artist;
+    }
+  }
+});
 });
 
 // Initialize visualizer on first play
