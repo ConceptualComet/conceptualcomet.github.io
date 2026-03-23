@@ -64,6 +64,8 @@ body {
   padding: 0 4px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 .now-playing {
   color: #fc6a28;
   color: #fc6a28;
@@ -74,6 +76,7 @@ body {
   text-overflow: ellipsis;
   flex: 1;
   min-width: 100px;
+  font-family: "Orbitron", sans-serif;
 }
 
 .visualizer {
