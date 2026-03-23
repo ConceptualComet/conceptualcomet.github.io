@@ -104,9 +104,9 @@ const starPositions = {
   'shrines-star':    { top: 0.20, left: 0.80 },
   'curriculum-star': { top: 0.31, left: 0.794 },
   'colophon-star':   { top: 0.47, left: 0.795 },
-  'now-star':        { top: 0.80, left: 0.13 },
-  'about-star':      { top: 0.70, left: 0.13 },
-  'links-star':      { top: 0.60, left: 0.13 }
+  'now-star':        { top: 0.83, left: 0.14 },
+  'about-star':      { top: 0.73, left: 0.14 },
+  'links-star':      { top: 0.63, left: 0.14 }
 };
 
 function positionElements() {
