@@ -125,13 +125,13 @@ color: #fc6a28;
   justify-content: space-between;
   align-items: center;
   padding: 4px 8px;
-  background: #fc6a28;
+  background: #2f2c48;
   background-size: 100% 6px;
   border-bottom: 1px solid #000;
 }
 
 .playlist-header span {
-  background: #fc6a28;
+  background: #2f2c48;
   padding: 0 4px;
   font-weight: bold;
 }
