@@ -70,8 +70,7 @@
 
 <!-- Folder backgrounds -->
 
-<div class="page-layer folder" data-layer="colophon"> </div>
-<div class="page-layer nav-menu" data-layer="colophon"> </div>    
+<div class="page-layer folder" data-layer="colophon"> </div>  
 <div class="page-layer monitor-sticker" data-layer="colophon"> </div>
 <div class="page-layer scrap" data-layer="curriculum"> </div>
 <div class="page-layer curriculum" data-layer="curriculum"> </div>
@@ -84,7 +83,7 @@
 <div class="page-layer gemini-patch" data-layer="splash"> </div>
 <div class="page-layer splash" data-layer="splash"> </div>
 <div class="page-layer astronaut-orbit">
-  <a href="#" onclick="resetJournal(); return false;"><div class="page-layer astronaut-sticker"></div></a>
+  <div class="page-layer astronaut-sticker" onclick="resetJournal(); return false;"></div>
 </div>
 <div class="page-layer about" data-layer="about"> </div> 
 <div class="page-layer earthrise" data-layer="earthrise"> </div>
@@ -96,13 +95,27 @@
 
 
 <!-- Star Navigation -->
-<div class="star-nav blog-star" onclick="revealLayer('blog')"></div>
-<div class="star-nav shrines-star" onclick="revealLayer('shrines')"></div>
-<div class="star-nav curriculum-star" onclick="revealLayer('curriculum')"></div>
-<div class="star-nav colophon-star" onclick="revealLayer('colophon')"></div>
-<div class="star-nav now-star" onclick="revealLayer('now')"></div>
-<div class="star-nav about-star" onclick="revealLayer('about')"></div>
-<div class="star-nav links-star" onclick="revealLayer('links')"></div>
+<div class="star-nav blog-star" onclick="revealLayer('blog')">
+  <span class="star-label">Blog</span>
+</div>
+<div class="star-nav shrines-star" onclick="revealLayer('shrines')">
+  <span class="star-label">Shrines</span>
+</div>
+<div class="star-nav curriculum-star" onclick="revealLayer('curriculum')">
+  <span class="star-label">Curriculum</span>
+</div>
+<div class="star-nav colophon-star" onclick="revealLayer('colophon')">
+  <span class="star-label">Colophon</span>
+</div>
+<div class="star-nav now-star" onclick="revealLayer('now')">
+  <span class="star-label">Now</span>
+</div>
+<div class="star-nav about-star" onclick="revealLayer('about')">
+  <span class="star-label">About</span>
+</div>
+<div class="star-nav links-star" onclick="revealLayer('links')">
+  <span class="star-label">Links</span>
+</div>
 
 
     
