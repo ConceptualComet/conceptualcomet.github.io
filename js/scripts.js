@@ -102,11 +102,11 @@ function resetJournal() {
 const starPositions = {
   'blog-star':       { top: 0.13, left: 0.797 },
   'shrines-star':    { top: 0.20, left: 0.80 },
-  'curriculum-star': { top: 0.32, left: 0.794 },
+  'curriculum-star': { top: 0.31, left: 0.794 },
   'colophon-star':   { top: 0.47, left: 0.795 },
-  'now-star':        { top: 0.77, left: 0.13 },
-  'about-star':      { top: 0.67, left: 0.13 },
-  'links-star':      { top: 0.57, left: 0.13 }
+  'now-star':        { top: 0.80, left: 0.13 },
+  'about-star':      { top: 0.70, left: 0.13 },
+  'links-star':      { top: 0.60, left: 0.13 }
 };
 
 function positionElements() {
