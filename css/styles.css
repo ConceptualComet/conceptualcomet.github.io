@@ -173,18 +173,63 @@ body {
   }
 }
 
-/* Star wrappers */
-.blog-star-wrapper {
-  background-image: url(/img/blog-star.png);
+/* Star Navigation */
+.star-nav {
   position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
   z-index: 50;
+  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
-.blog-star-wrapper:hover {
-  filter: brightness(1.1);
+.star-nav:hover {
+  filter: brightness(1.4);
+  transform: scale(1.15);
 }
 
+.blog-star {
+   background-image: url(/img/blog-star.png);
+   width: 35px;
+   height: 34px;
+}
+
+.shrines-star {
+   background-image: url(/img/shrines-star.png);
+   width: 34px;
+   height: 34px;
+}
+
+.curriculum-star {
+    background-image: url(/img/curriculum-star.png);
+    width: 36px;
+    height: 33px;
+}
+
+.colophon-star {
+    background-image: url(/img/colophon-star.png);
+    width: 35px;
+    height: 33px;
+}
+
+.now-star {
+    background-image: url(/img/now-star.png);
+    width: 36px;
+    height: 36px;
+}
+
+.about-star {
+    background-image: url(/img/about-star.png);
+    width: 37px;
+    height: 34px;
+}
+
+.links-star {
+    background-image: url(/img/links-star.png);
+    width: 36px;
+    height: 35px;
+}
 
 
 @keyframes float1 {
