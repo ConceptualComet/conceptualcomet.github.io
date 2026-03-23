@@ -698,7 +698,7 @@ body {
   /* Hide all the layered folder stuff */
   .page-layer,
   .splash-NSFW,
-  .binder-clip-nav {
+  .star-nav {
     display: none !important;
   }
   
