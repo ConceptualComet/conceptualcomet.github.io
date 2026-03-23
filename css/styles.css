@@ -42,7 +42,7 @@ body {
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
   background: #000;
-  border: 0 1px 0 solid #ff71ce;
+  border: 0 1px 0 solid ##fc6a28;
   box-shadow: 0 -3px 0 #000;
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .now-playing {
-  color: #ff71ce;
+  color: ##fc6a28;
   font-weight: bold;
   padding: 4px 8px;
   background: rgba(255, 255, 255, 0.3);
@@ -85,7 +85,7 @@ body {
   width: 24px;
   height: 24px;
   background: #fff;
-  border: 1px solid #ff71ce;
+  border: 1px solid ##fc6a28;
   cursor: pointer;
   font-size: 10px;
   flex-shrink: 0;
@@ -95,7 +95,7 @@ body {
   width: 32px;
   height: 24px;
   background: #fff;
-  border: 1px solid #ff71ce;
+  border: 1px solid ##fc6a28;
   box-shadow: inset -1px -1px 0 #808080;
   cursor: pointer;
   font-size: 10px;
@@ -109,7 +109,7 @@ body {
 /* Playlist panel */
 .player-playlist {
   display: none;
-  border-top: 1px solid #ff71ce;
+  border-top: 1px solid ##fc6a28;
   background: rgba(0, 0, 0, 0.8);
   max-height: 150px;
   overflow-y: auto;
@@ -163,7 +163,7 @@ body {
 }
 
 .playlist-track.amplitude-active-song-container {
-  color: #ff71ce;
+  color: ##fc6a28;
   background: rgba(255, 113, 206, 0.2);
 }
 
