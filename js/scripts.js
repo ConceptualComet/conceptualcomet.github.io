@@ -97,10 +97,6 @@ function resetJournal() {
   revealLayer('splash');
 }
 
-// function passAgeGate() {
-//   sessionStorage.setItem('ageVerified', 'true');
-//   revealLayer('blog');
-// }
 
 function positionElements() {
   const vw = window.innerWidth;
@@ -144,53 +140,13 @@ for (const [className, pos] of Object.entries(contentPositions)) {
   }
 }
 
-// Position binder clip
-const binderWrapper = document.querySelector('.binder-clip-wrapper');
-if (binderWrapper) {
-  binderWrapper.style.top = (offsetY + renderedHeight * 0.106) + 'px';
-  binderWrapper.style.left = (offsetX + renderedWidth * 0.798) + 'px';
-  binderWrapper.style.width = (renderedWidth * 0.092) + 'px';
+// Position blog star
+const blogStarWrapper = document.querySelector('.blog-star-wrapper');
+if (blogStarWrapper) {
+  blogStarWrapper.style.top = (offsetY + renderedHeight * 0.106) + 'px';
+  blogStarWrapper.style.left = (offsetX + renderedWidth * 0.798) + 'px';
+  blogStarWrapper.style.width = (renderedWidth * 0.092) + 'px';
 }
-}
-
-//Control pop-up nav menu
-function openPopup(event) {
-  event.stopPropagation(); // blocks click from reaching event listener and immediately closing popup
-  
-  const navPopup = document.getElementById('nav-popup');
-  if (!navPopup) return;
-  
-  const margin = 8;
-  
-  // Position at cursor
-  let left = event.clientX;
-  let top = event.clientY;
-  
-  navPopup.classList.add('open');
-  
-  // Wait a frame so we can measure the popup
-  requestAnimationFrame(() => {
-    const popupRect = navPopup.getBoundingClientRect();
-    
-    // If it would overflow right, shift left
-    if (left + popupRect.width > window.innerWidth - margin) {
-      left = window.innerWidth - popupRect.width - margin;
-    }
-    
-    // If it would overflow bottom, shift up
-    if (top + popupRect.height > window.innerHeight - margin) {
-      top = window.innerHeight - popupRect.height - margin;
-    }
-    
-    navPopup.style.left = left + 'px';
-    navPopup.style.top = top + 'px';
-  });
-}
-
-function closePopup() {
-  const navPopup = document.getElementById('nav-popup');
-  if (!navPopup) return;
-  navPopup.classList.remove('open');
 }
 
 // Mobile navigation
@@ -228,75 +184,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Close desktop nav popup when clicking outside
-document.addEventListener('click', function(event) {
-  const navPopup = document.getElementById('nav-popup');
-  
-  if (!navPopup || !navPopup.classList.contains('open')) return;
-  
-  if (!navPopup.contains(event.target)) {
-    closePopup();
-  }
-});
 
-// Cursor sparkle trail
-let sparkleThrottle = 0;
-
-document.addEventListener('mousemove', function(e) {
-  // Throttle sparkle creation (every 3rd move event)
-  sparkleThrottle++;
-  if (sparkleThrottle % 3 !== 0) {
-    checkClipProximity(e);
-    return;
-  }
-  
-  // Random offset for spread
-  const offsetX = (Math.random() - 0.5) * 40;
-  const offsetY = (Math.random() - 0.5) * 40;
-  
-  // Random drift direction for animation
-  const driftX = (Math.random() - 0.5) * 30;
-  const driftY = (Math.random() - 0.5) * 30;
-  
-  // Create sparkle
-  const sparkle = document.createElement('div');
-  sparkle.className = 'sparkle';
-  sparkle.style.left = (e.clientX + offsetX - 3) + 'px';
-  sparkle.style.top = (e.clientY + offsetY - 3) + 'px';
-  sparkle.style.setProperty('--drift-x', driftX + 'px');
-  sparkle.style.setProperty('--drift-y', driftY + 'px');
-  
-  const container = document.getElementById('sparkle-container');
-  if (container) {
-    container.appendChild(sparkle);
-    
-    setTimeout(() => {
-      sparkle.remove();
-    }, 1000);
-  }
-  
-  checkClipProximity(e);
-});
-
-function checkClipProximity(e) {
-  const clipWrapper = document.querySelector('.binder-clip-wrapper');
-  if (!clipWrapper) return;
-  
-  const rect = clipWrapper.getBoundingClientRect();
-  const clipCenterX = rect.left + rect.width / 2;
-  const clipCenterY = rect.top + rect.height / 2;
-  
-  const distance = Math.sqrt(
-    Math.pow(e.clientX - clipCenterX, 2) + 
-    Math.pow(e.clientY - clipCenterY, 2)
-  );
-  
-  if (distance < 170) {
-    clipWrapper.classList.add('cursor-near');
-  } else {
-    clipWrapper.classList.remove('cursor-near');
-  }
-}
 
 // Toggle playlist visibility
 function togglePlaylist() {
