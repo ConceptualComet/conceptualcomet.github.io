@@ -215,7 +215,7 @@ function toggleMute() {
 // Visualizer
 function initVisualizer() {
   const canvas = document.getElementById('visualizer');
-  if (!canvas) return;
+  if (!canvas) return false;
   
   const ctx = canvas.getContext('2d');
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -226,7 +226,7 @@ function initVisualizer() {
   const audio = document.querySelector('audio');
   if (!audio) {
     console.log('No audio element found');
-    return;
+    return false;
   }
   
   const source = audioContext.createMediaElementSource(audio);
@@ -261,6 +261,7 @@ function initVisualizer() {
   }
   
   draw();
+  return true;
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -272,6 +273,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // Initialize Amplitude after page loads
 Amplitude.init({
+  continue_next: true,
   songs: [
     {
       name: "Beauty Flow",
@@ -347,6 +349,27 @@ Amplitude.init({
     }
   }
 });
+
+  const nowPlaying = document.querySelector('.now-playing');
+  if (nowPlaying) {
+    nowPlaying.textContent = 'Beauty Flow - Kevin MacLeod';
+  }
+
+  // Loop the full playlist by wrapping last track -> first track.
+  const amplitudeAudio = document.querySelector('audio');
+  if (amplitudeAudio) {
+    amplitudeAudio.addEventListener('ended', () => {
+      const songs = Amplitude.getSongs();
+      if (!songs || !songs.length) return;
+
+      const activeTrack = document.querySelector('.playlist-track.amplitude-active-song-container');
+      const activeIndex = activeTrack ? Number(activeTrack.getAttribute('data-amplitude-song-index')) : -1;
+
+      if (activeIndex === songs.length - 1) {
+        Amplitude.playSongAtIndex(0);
+      }
+    });
+  }
 });
 
 // Initialize visualizer on first play
@@ -354,13 +377,20 @@ let visualizerInitialized = false;
 
 function initVisualizerOnce() {
   if (visualizerInitialized) return;
-  visualizerInitialized = true;
-  initVisualizer();
+  visualizerInitialized = initVisualizer();
 }
 
 // Hook into Amplitude's play event
 document.addEventListener('click', function(e) {
   if (e.target.closest('.player-btn')) {
+    // If no active song is selected yet, force first track on first play click.
+    const playPauseBtn = e.target.closest('.amplitude-play-pause');
+    if (playPauseBtn) {
+      const meta = Amplitude.getActiveSongMetadata();
+      if (!meta || !meta.url) {
+        Amplitude.playSongAtIndex(0);
+      }
+    }
     initVisualizerOnce();
   }
 });
