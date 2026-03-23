@@ -201,7 +201,9 @@ document.addEventListener('click', function(event) {
 // Toggle playlist visibility
 function togglePlaylist() {
   const playlist = document.getElementById('player-playlist');
+  const expandBtn = document.querySelector('.expand-btn');
   playlist.classList.toggle('open');
+  expandBtn.textContent = playlist.classList.contains('open') ? '▼' : '▲';
 }
 
 // Mute toggle
