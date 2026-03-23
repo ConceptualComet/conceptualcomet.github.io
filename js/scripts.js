@@ -106,7 +106,8 @@ const starPositions = {
   'colophon-star':   { top: 0.47, left: 0.795 },
   'now-star':        { top: 0.83, left: 0.14 },
   'about-star':      { top: 0.73, left: 0.14 },
-  'links-star':      { top: 0.63, left: 0.14 }
+  'links-star':      { top: 0.63, left: 0.14 },
+  'reset-star':      { top: 0.85, left: 0.15 }
 };
 
 function positionElements() {
