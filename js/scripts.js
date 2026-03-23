@@ -323,7 +323,7 @@ Amplitude.init({
       url: "/audio/Blippy-Trance.mp3"
     },
     {
-      name: "Cipher2",
+      name: "Cipher",
       artist: "Kevin MacLeod",
       url: "/audio/Cipher2.mp3"
     },
