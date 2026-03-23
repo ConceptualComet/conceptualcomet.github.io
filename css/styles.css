@@ -86,25 +86,25 @@ color: #fc6a28;
 .expand-btn {
   width: 24px;
   height: 24px;
-  background: #2f2c48;
-  border: 1px solid #fc6a28;
+  background: transparent;
+  border: none;
   cursor: pointer;
   font-size: 12px;
   flex-shrink: 0;
+  color: #fc6a28;
 }
 
 .player-btn {
-  width: 32px;
+  width: auto;
   height: 24px;
-  background: #2f2c48;
-  border: 1px solid #fc6a28;
+  background: transparent;
+  border: none;
   cursor: pointer;
   font-size: 12px;
+  color: #fc6a28;
+  padding: 0 4px;
 }
 
-.player-btn:active {
-  box-shadow: inset 1px 1px 0 #2f2c48;
-}
 
 
 /* Playlist panel */
