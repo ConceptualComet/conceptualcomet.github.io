@@ -41,7 +41,7 @@ body {
   z-index: 200;
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
-  background: #000;
+  background: #2f2c48;
   border: 0 1px 0 solid #fc6a28;
   box-shadow: 0 -3px 0 #000;
 }
@@ -59,7 +59,7 @@ body {
 .visualizer {
   width: 150px;
   height: 24px;
-  background: #000;
+  background: #2f2c48;
   flex-shrink: 0;
 }
 
@@ -67,7 +67,7 @@ body {
   color: #fc6a28;
   font-weight: bold;
   padding: 4px 8px;
-  background: rgba(255, 255, 255, 0.3);
+  background: #2f2c48;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -84,25 +84,24 @@ body {
 .expand-btn {
   width: 24px;
   height: 24px;
-  background: #fff;
+  background: #2f2c48;
   border: 1px solid #fc6a28;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
   flex-shrink: 0;
 }
 
 .player-btn {
   width: 32px;
   height: 24px;
-  background: #fff;
+  background: #2f2c48;
   border: 1px solid #fc6a28;
-  box-shadow: inset -1px -1px 0 #808080;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .player-btn:active {
-  box-shadow: inset 1px 1px 0 #808080;
+  box-shadow: inset 1px 1px 0 #2f2c48;
 }
 
 
@@ -124,13 +123,13 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 4px 8px;
-  background: linear-gradient(180deg, #fff 0%, #fff 45%, #000 45%, #000 55%, #fff 55%, #fff 100%);
+  background: #fc6a28;
   background-size: 100% 6px;
   border-bottom: 1px solid #000;
 }
 
 .playlist-header span {
-  background: #fff;
+  background: #fc6a28;
   padding: 0 4px;
   font-weight: bold;
 }
@@ -138,10 +137,10 @@ body {
 .playlist-header button {
   width: 14px;
   height: 14px;
-  background: #fff;
+  background: #fc6a28;
   border: 1px solid #000;
   cursor: pointer;
-  font-size: 8px;
+  font-size: 10px;
   padding: 0;
 }
 
