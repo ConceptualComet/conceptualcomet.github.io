@@ -213,12 +213,23 @@ function toggleMute() {
 }
 
 // Visualizer
+let visualizerAudioContext = null;
+
 function initVisualizer() {
   const canvas = document.getElementById('visualizer');
   if (!canvas) return false;
-  
+
+  // Keep canvas bitmap in sync with rendered size, or bars may not show.
+  const displayWidth = Math.max(1, Math.floor(canvas.clientWidth || 150));
+  const displayHeight = Math.max(1, Math.floor(canvas.clientHeight || 24));
+  canvas.width = displayWidth;
+  canvas.height = displayHeight;
+
   const ctx = canvas.getContext('2d');
-  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+  if (!ctx) return false;
+
+  const audioContext = visualizerAudioContext || new (window.AudioContext || window.webkitAudioContext)();
+  visualizerAudioContext = audioContext;
   const analyser = audioContext.createAnalyser();
   analyser.fftSize = 64;
   
@@ -228,8 +239,15 @@ function initVisualizer() {
     console.log('No audio element found');
     return false;
   }
-  
-  const source = audioContext.createMediaElementSource(audio);
+
+  let source;
+  try {
+    source = audioContext.createMediaElementSource(audio);
+  } catch (err) {
+    console.log('Visualizer source error:', err);
+    return false;
+  }
+
   source.connect(analyser);
   analyser.connect(audioContext.destination);
   
@@ -380,6 +398,17 @@ function initVisualizerOnce() {
   visualizerInitialized = initVisualizer();
 }
 
+function initVisualizerWithRetry(attempt = 0) {
+  if (visualizerInitialized) return;
+
+  initVisualizerOnce();
+  if (visualizerInitialized) return;
+
+  if (attempt < 8) {
+    setTimeout(() => initVisualizerWithRetry(attempt + 1), 120);
+  }
+}
+
 // Hook into Amplitude's play event
 document.addEventListener('click', function(e) {
   if (e.target.closest('.player-btn')) {
@@ -391,7 +420,10 @@ document.addEventListener('click', function(e) {
         Amplitude.playSongAtIndex(0);
       }
     }
-    initVisualizerOnce();
+    if (visualizerAudioContext && visualizerAudioContext.state === 'suspended') {
+      visualizerAudioContext.resume();
+    }
+    initVisualizerWithRetry();
   }
 });
 
