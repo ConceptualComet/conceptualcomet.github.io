@@ -198,22 +198,16 @@ document.addEventListener('click', function(event) {
 
 
 
-// Toggle playlist visibility
-function togglePlaylist() {
-  const playlist = document.getElementById('player-playlist');
-  const expandBtn = document.querySelector('.expand-btn');
-  playlist.classList.toggle('open');
-  expandBtn.textContent = playlist.classList.contains('open') ? '▼' : '▲';
-}
-
-// Mute toggle
-let isMuted = false;
-function toggleMute() {
-  isMuted = !isMuted;
-  Amplitude.setVolume(isMuted ? 0 : 80);
-  document.querySelector('.mute-btn').textContent = isMuted ? 'X' : 'ON';
-}
-
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.amplitude-play-pause');
+  if (!btn) return;
+  
+  // Small delay to let Amplitude update its state
+  setTimeout(() => {
+    const audio = Amplitude.getAudio();
+    btn.textContent = audio && !audio.paused ? '■' : '▶';
+  }, 50);
+});
 // Visualizer
 let visualizerAudioContext = null;
 let visualizerAnalyser = null;
@@ -380,6 +374,8 @@ Amplitude.init({
       const meta = Amplitude.getActiveSongMetadata();
       document.querySelector('.now-playing').textContent = 
         meta.name + ' - ' + meta.artist;
+      const btn = document.querySelector('.amplitude-play-pause');
+      if (btn) btn.textContent = '■';
     }
   }
 });

@@ -18,15 +18,11 @@
 </div>
 
 <div class="music-player" id="music-player">
- <div class="player-minimized">
-  <button class="expand-btn" onclick="togglePlaylist()">▲</button>
-  <div class="player-controls">
-    <button class="player-btn amplitude-prev">◀◀</button>
-    <button class="player-btn mute-btn" onclick="toggleMute()">ON</button>
-    <button class="player-btn amplitude-next">▶▶</button>
+  <div class="player-minimized">
+    <button class="player-btn amplitude-play-pause" onclick="initVisualizerWithRetry()">▶</button>
+    <div class="now-playing">Beauty Flow - Kevin MacLeod</div>
+    <canvas class="visualizer" id="visualizer"></canvas>
   </div>
-  <canvas class="visualizer" id="visualizer"></canvas>
-  <div class="now-playing">Song Title - Artist</div>
 </div>
   
   <!-- Expanded playlist view -->
