@@ -212,15 +212,23 @@ function toggleMute() {
   document.querySelector('.mute-btn').textContent = isMuted ? '🔇' : '🔊';
 }
 
-// Basic visualizer using Web Audio API
+// Visualizer
 function initVisualizer() {
   const canvas = document.getElementById('visualizer');
+  if (!canvas) return;
+  
   const ctx = canvas.getContext('2d');
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const analyser = audioContext.createAnalyser();
   analyser.fftSize = 64;
   
+  // Get Amplitude's audio element
   const audio = document.querySelector('audio');
+  if (!audio) {
+    console.log('No audio element found');
+    return;
+  }
+  
   const source = audioContext.createMediaElementSource(audio);
   source.connect(analyser);
   analyser.connect(audioContext.destination);
@@ -241,7 +249,6 @@ function initVisualizer() {
     for (let i = 0; i < bufferLength; i++) {
       const barHeight = (dataArray[i] / 255) * canvas.height;
       
-      // Vaporwave gradient colors
       const gradient = ctx.createLinearGradient(0, canvas.height, 0, 0);
       gradient.addColorStop(0, '#01cdfe');
       gradient.addColorStop(0.5, '#ff71ce');
@@ -362,7 +369,9 @@ window.addEventListener('resize', positionElements);
 
 // Show splash on top of everything
 window.addEventListener('DOMContentLoaded', () => {
-   document.querySelector('[data-layer="splash"]').style.display = 'block';
-    document.querySelector('[data-layer="earthrise"]').style.display = 'block';
-    document.querySelector('[data-layer="sunita"]').style.display = 'block';
+  document.querySelector('[data-layer="splash"]').style.display = 'block';
+  document.querySelector('[data-layer="earthrise"]').style.display = 'block';
+  document.querySelector('[data-layer="sunita"]').style.display = 'block';
+  console.log('Amplitude initialized:', Amplitude);
+  console.log('Songs:', Amplitude.getSongs());
 });
