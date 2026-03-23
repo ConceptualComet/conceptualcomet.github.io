@@ -100,7 +100,7 @@ function resetJournal() {
 // Star navigation positions
 const starPositions = {
   'blog-star':       { top: 0.13, left: 0.797 },
-  'shrines-star':    { top: 0.18, left: 0.80 },
+  'shrines-star':    { top: 0.18, left: 0.796 },
   'curriculum-star': { top: 0.22, left: 0.794 },
   'colophon-star':   { top: 0.27, left: 0.795 },
   'now-star':        { top: 0.32, left: 0.792 },
