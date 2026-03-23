@@ -100,13 +100,13 @@ function resetJournal() {
 // Star navigation positions
 // Adjust these ratios based on where you wrote the words on your folder
 const starPositions = {
-  'blog-star':       { top: 0.13, left: 0.80 },
+  'blog-star':       { top: 0.13, left: 0.797 },
   'shrines-star':    { top: 0.20, left: 0.80 },
-  'curriculum-star': { top: 0.35, left: 0.80 },
-  'colophon-star':   { top: 0.50, left: 0.80 },
-  'now-star':        { top: 0.75, left: 0.10 },
-  'about-star':      { top: 0.65, left: 0.10 },
-  'links-star':      { top: 0.55, left: 0.10 }
+  'curriculum-star': { top: 0.32, left: 0.794 },
+  'colophon-star':   { top: 0.47, left: 0.795 },
+  'now-star':        { top: 0.77, left: 0.13 },
+  'about-star':      { top: 0.67, left: 0.13 },
+  'links-star':      { top: 0.57, left: 0.13 }
 };
 
 function positionElements() {
