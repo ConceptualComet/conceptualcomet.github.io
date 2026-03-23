@@ -35,27 +35,29 @@ body {
 
 .music-player {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 200;
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
   background: linear-gradient(180deg, #ff71ce 0%, #01cdfe 50%, #05ffa1 100%);
   border: 2px solid #000;
-  box-shadow: 3px 3px 0 #000;
-  min-width: 200px;
+  box-shadow: 0 -3px 0 #000;
 }
 
 .player-minimized {
-  padding: 8px;
+  padding: 8px 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  max-width: 1200px; /* prevent it getting too spread out on huge screens */
+  margin: 0 auto;    /* center it if using max-width */
 }
 
 .visualizer {
-  width: 80px;
+  width: 150px;
   height: 24px;
   background: #000;
   border: 1px solid #000;
