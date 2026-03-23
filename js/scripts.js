@@ -214,6 +214,10 @@ function toggleMute() {
 
 // Visualizer
 let visualizerAudioContext = null;
+let visualizerAnalyser = null;
+let visualizerDataArray = null;
+let visualizerDrawStarted = false;
+let visualizerSourceNode = null;
 
 function initVisualizer() {
   const canvas = document.getElementById('visualizer');
@@ -230,8 +234,9 @@ function initVisualizer() {
 
   const audioContext = visualizerAudioContext || new (window.AudioContext || window.webkitAudioContext)();
   visualizerAudioContext = audioContext;
-  const analyser = audioContext.createAnalyser();
-  analyser.fftSize = 64;
+  if (audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
   
   // Get Amplitude's audio element
   const audio = document.querySelector('audio');
@@ -240,23 +245,30 @@ function initVisualizer() {
     return false;
   }
 
-  let source;
-  try {
-    source = audioContext.createMediaElementSource(audio);
-  } catch (err) {
-    console.log('Visualizer source error:', err);
-    return false;
+  if (!visualizerAnalyser) {
+    visualizerAnalyser = audioContext.createAnalyser();
+    visualizerAnalyser.fftSize = 64;
   }
 
-  source.connect(analyser);
-  analyser.connect(audioContext.destination);
-  
-  const bufferLength = analyser.frequencyBinCount;
-  const dataArray = new Uint8Array(bufferLength);
+  if (!visualizerSourceNode) {
+    try {
+      visualizerSourceNode = audioContext.createMediaElementSource(audio);
+      visualizerSourceNode.connect(visualizerAnalyser);
+      visualizerAnalyser.connect(audioContext.destination);
+    } catch (err) {
+      console.log('Visualizer source error:', err);
+      return false;
+    }
+  }
+
+  const bufferLength = visualizerAnalyser.frequencyBinCount;
+  if (!visualizerDataArray || visualizerDataArray.length !== bufferLength) {
+    visualizerDataArray = new Uint8Array(bufferLength);
+  }
   
   function draw() {
     requestAnimationFrame(draw);
-    analyser.getByteFrequencyData(dataArray);
+    visualizerAnalyser.getByteFrequencyData(visualizerDataArray);
     
     ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -265,7 +277,7 @@ function initVisualizer() {
     let x = 0;
     
     for (let i = 0; i < bufferLength; i++) {
-      const barHeight = (dataArray[i] / 255) * canvas.height;
+      const barHeight = (visualizerDataArray[i] / 255) * canvas.height;
 
       // Debug colors: high contrast so we can verify drawing.
       ctx.fillStyle = '#39ff14';
@@ -274,7 +286,10 @@ function initVisualizer() {
     }
   }
   
-  draw();
+  if (!visualizerDrawStarted) {
+    visualizerDrawStarted = true;
+    draw();
+  }
   return true;
 }
 
@@ -416,7 +431,10 @@ document.addEventListener('click', function(e) {
         Amplitude.playSongAtIndex(0);
       }
     }
-    if (visualizerAudioContext && visualizerAudioContext.state === 'suspended') {
+    if (!visualizerAudioContext) {
+      visualizerAudioContext = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (visualizerAudioContext.state === 'suspended') {
       visualizerAudioContext.resume();
     }
     initVisualizerWithRetry();
