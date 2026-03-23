@@ -205,7 +205,7 @@ document.addEventListener('click', function(e) {
   // Small delay to let Amplitude update its state
   setTimeout(() => {
     const audio = Amplitude.getAudio();
-    btn.textContent = audio && !audio.paused ? '■' : '▶';
+    btn.textContent = audio && !audio.paused ? '🔇 OFF' : '🔊 ON';
   }, 50);
 });
 // Visualizer
@@ -375,7 +375,7 @@ Amplitude.init({
       document.querySelector('.now-playing').textContent = 
         meta.name + ' - ' + meta.artist;
       const btn = document.querySelector('.amplitude-play-pause');
-      if (btn) btn.textContent = '■';
+      if (btn) btn.textContent = '🔇 OFF';
     }
   }
 });

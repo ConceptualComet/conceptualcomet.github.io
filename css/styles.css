@@ -34,58 +34,21 @@ body {
 }
 
 /* Music Player */
-
 .music-player {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 16px;
+  left: 16px;
   z-index: 200;
-  font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
-  font-size: 12px;
-  background: #2f2c48;
-}
-
-.player-minimized {
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .player-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 18px;
   color: #fc6a28;
-  padding: 0 4px;
+  padding: 0;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-
-.now-playing {
-  color: #fc6a28;
-  font-weight: bold;
-  padding: 4px 8px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex: 1;
-  min-width: 100px;
-  font-family: "Orbitron", sans-serif;
-}
-
-.visualizer {
-  width: 150px;
-  height: 24px;
-  background: #2f2c48;
-  flex-shrink: 0;
-  color: #fc6a28;
-}
-
 /* Hide on mobile */
 @media (max-width: 768px) {
   .music-player {
