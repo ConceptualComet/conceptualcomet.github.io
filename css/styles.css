@@ -42,8 +42,8 @@ body {
   font-family: "Chicago", "Charcoal", "Geneva", sans-serif;
   font-size: 12px;
   background: #000;
-  border: 2px solid #ff71ce;
-  box-shadow: 0 -3px 0 #ff71ce;
+  border: 0 1px 0 solid #ff71ce;
+  box-shadow: 0 -3px 0 #000;
 }
 
 .player-minimized {
