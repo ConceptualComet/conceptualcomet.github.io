@@ -231,6 +231,12 @@ body {
     height: 35px;
 }
 
+.reset-star {
+    background-image: url(/img/reset-star.png);
+    width: 36px;
+    height: 35px;
+}
+
 /* Star Labels - Typewriter Effect */
 .star-label {
   position: absolute;
@@ -286,6 +292,7 @@ body {
 .now-star .star-label        { --char-count: 3;  --label-width: 3ch;  --type-speed: 0.2s; }
 .about-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
 .links-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
+.reset-star .star-label      { --char-count: 5; --label-width: 5ch; --type-speed: 0.35s; }
 
 
 
