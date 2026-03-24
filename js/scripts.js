@@ -396,7 +396,7 @@ document.querySelectorAll('.paper-ruffle').forEach(el => {
   el.addEventListener('mouseenter', () => {
     if (!animEnabled) return;
     const deg = (Math.random() * 6 - 3).toFixed(1);
-    el.style.setProperty('--ruffle-deg', deg + 'deg');
+    el.style.setProperty('--ruffle-deg', deg);
     el.classList.remove('ruffling');
     void el.offsetWidth; // force reflow so animation restarts
     el.classList.add('ruffling');
