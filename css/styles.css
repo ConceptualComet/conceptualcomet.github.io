@@ -77,6 +77,10 @@ body {
   white-space: nowrap;
 }
 
+.player-btn.struck {
+  text-decoration: line-through;
+}
+
 /* Hide on mobile */
 @media (max-width: 768px) {
   .music-player {
