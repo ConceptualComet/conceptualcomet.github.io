@@ -405,6 +405,20 @@ body {
   background-size: contain;
 }
 
+.page-layer[data-layer] {
+  animation: none;
+}
+
+.page-layer.flip-in {
+  animation: flip-pop 0.3s steps(3) forwards;
+}
+
+@keyframes flip-pop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
 /* Folder */
 .folder {
   z-index: -1;
