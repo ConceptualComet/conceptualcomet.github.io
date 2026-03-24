@@ -208,6 +208,14 @@ document.addEventListener('click', function(event) {
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.amplitude-play-pause');
   if (!btn) return;
+
+   // On first play, pick a random song
+  const meta = Amplitude.getActiveSongMetadata();
+  if (!meta || !meta.url) {
+    const songs = Amplitude.getSongs();
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    Amplitude.playSongAtIndex(randomIndex);
+  }
   
   // Small delay to let Amplitude update its state
   setTimeout(() => {
@@ -309,6 +317,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize Amplitude after page loads
 Amplitude.init({
   continue_next: true,
+  shuffle_on: true,
   songs: [
     {
       name: "Beauty Flow",
@@ -379,18 +388,12 @@ Amplitude.init({
   callbacks: {
     song_change: function() {
       const meta = Amplitude.getActiveSongMetadata();
-      document.querySelector('.now-playing').textContent = 
-        meta.name + ' - ' + meta.artist;
       const btn = document.querySelector('.amplitude-play-pause');
       if (btn) btn.textContent = '♫ PLAYING...';
     }
   }
 });
 
-  const nowPlaying = document.querySelector('.now-playing');
-  if (nowPlaying) {
-    nowPlaying.textContent = 'Beauty Flow - Kevin MacLeod';
-  }
 
   // Loop the full playlist by wrapping last track -> first track.
   const amplitudeAudio = document.querySelector('audio');
