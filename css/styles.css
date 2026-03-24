@@ -282,6 +282,22 @@ body {
 }
 
 /* Animation */
+.paper-ruffle {
+  transition: none;
+}
+
+.paper-ruffle.ruffling {
+  animation: ruffle 0.4s steps(4) forwards;
+}
+
+@keyframes ruffle {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(var(--ruffle-deg)); }
+  50%  { transform: rotate(calc(var(--ruffle-deg) * -0.6)); }
+  75%  { transform: rotate(calc(var(--ruffle-deg) * 0.3)); }
+  100% { transform: rotate(0deg); }
+}
+
 @keyframes scroll {
   from { background-position: 0 0; }
   to { background-position: -2000px 0; }
