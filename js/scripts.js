@@ -163,7 +163,7 @@ for (const [className, pos] of Object.entries(contentPositions)) {
  // Position music player
    const musicPlayer = document.querySelector('.music-player');
      if (musicPlayer) {
-      musicPlayer.style.top = (offsetY + renderedHeight * 0.83) + 'px';
+      musicPlayer.style.top = (offsetY + renderedHeight * 0.80) + 'px';
       musicPlayer.style.left = (offsetX + renderedWidth * 0.13) + 'px';
      }
 }
