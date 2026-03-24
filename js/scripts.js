@@ -22,7 +22,47 @@ let activeRight = 'splash';
 let activeLeftTop = 'earthrise';
 let activeLeftBottom = 'sunita';
 
+// Sound FX
+const revealSounds = [
+  new Audio('/audio/151220__owlstorm__page-turn-1.wav'),
+  new Audio('/audio/531896__bepis__pickup3.wav'),
+  new Audio('/audio/531898__bepis__pickup1.wav')
+  new Audio('/audio/531899__bepis__pickup7.wav'),
+  new Audio('/audio/531908__bepis__wave4.wav'),
+  new Audio('/audio/651514__1bob__paper.wav')
+  new Audio('/audio/676674__cameronpride__page-flip.wav'),
+  new Audio('/audio/684078__geoff-bremner-audio__paper-handling-2.wav'),
+  new Audio('/audio/82378__gynation__paper-flip-2.wav')
+  new Audio('/audio/828802__onlyoz__paper-page-flip.wav'),
+  new Audio('/audio/842183__aardsreal__page-turn-free.wav'),
+];
+revealSounds.forEach(s => s.volume = 0.3);
+
+const resetSounds = [
+  new Audio('/audio/416179__inspectorj__book-flipping-through-pages-a.wav'),
+  new Audio('/audio/63318__flag2__page-turn-please-turn-over-pto-paper_turn_over.wav'),
+  new Audio('531892__bepis__crumple9.wav')
+];
+resetSounds.forEach(s => s.volume = 0.3);
+
+const ruffleSounds = [
+  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav'),
+  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav'),
+  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav')
+];
+ruffleSounds.forEach(s => s.volume = 0.3);
+
+function playRandom(sounds) {
+  const sound = sounds[Math.floor(Math.random() * sounds.length)];
+  sound.currentTime = 0;
+  sound.play();
+}
+
+
+
+// Reveals & Resets
 function revealLayer(layerName) {
+  playRandom(revealSounds);
   for (const [stackName, layers] of Object.entries(stacks)) {
     const layerIndex = layers.indexOf(layerName);
     if (layerIndex === -1) continue;
@@ -32,6 +72,16 @@ function revealLayer(layerName) {
       elements.forEach(el => {
         el.style.display = index <= layerIndex ? 'block' : 'none';
       });
+    });
+
+    const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
+    elements.forEach(el => {
+      el.classList.remove('flip-in');
+      void el.offsetWidth;
+      el.classList.add('flip-in');
+      el.addEventListener('animationend', () => {
+        el.classList.remove('flip-in');
+      }, { once: true });
     });
 
     // Track which layer is active per stack
@@ -68,7 +118,7 @@ function revealLayer(layerName) {
     }
   });
 
-   // Animate TV and express-yourself only when shrines is active
+// Animate TV and express-yourself only when shrines is active
   const tv = document.querySelector('.tv');
   const expressYourself = document.querySelector('.express-yourself');
   
@@ -91,6 +141,7 @@ function revealLayer(layerName) {
 
 
 function resetJournal() {
+  playRandom(resetSounds);
   // Show all top layers (default state)
   revealLayer('earthrise');
   revealLayer('sunita');
@@ -203,9 +254,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-const ruffleSound = new Audio('/audio/676674__cameronpride__page-flip.wav');
-ruffleSound.volume = 0.3;
-
+// Ruffle motion effects
 document.querySelectorAll('.paper-ruffle').forEach(el => {
   el.addEventListener('mouseenter', () => {
     const deg = (Math.random() * 6 - 3).toFixed(1);
@@ -214,8 +263,7 @@ document.querySelectorAll('.paper-ruffle').forEach(el => {
     void el.offsetWidth; // force reflow so animation restarts
     el.classList.add('ruffling');
     
-    ruffleSound.currentTime = 0;
-    ruffleSound.play();
+    playRandom(ruffleSounds);
   });
 
   el.addEventListener('animationend', () => {
