@@ -298,21 +298,6 @@ body {
 }
 
 /* Animation */
-.paper-ruffle {
-  transition: none;
-}
-
-.paper-ruffle.ruffling {
-  animation: ruffle 0.4s steps(4) forwards;
-}
-
-@keyframes ruffle {
-  0%   { rotate: 0deg; }
-  25%  { rotate: calc(var(--ruffle-deg) * 1deg); }
-  50%  { rotate: calc(var(--ruffle-deg) * -0.6deg); }
-  75%  { rotate: calc(var(--ruffle-deg) * 0.3deg); }
-  100% { rotate: 0deg; }
-}
 
 @keyframes scroll {
   from { background-position: 0 0; }
