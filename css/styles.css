@@ -308,9 +308,9 @@ body {
 
 @keyframes ruffle {
   0%   { rotate: 0deg; }
-  25%  { rotate: var(--ruffle-deg); }
-  50%  { rotate: calc(var(--ruffle-deg) * -0.6); }
-  75%  { rotate: calc(var(--ruffle-deg) * 0.3); }
+  25%  { rotate: calc(var(--ruffle-deg) * 1deg); }
+  50%  { rotate: calc(var(--ruffle-deg) * -0.6deg); }
+  75%  { rotate: calc(var(--ruffle-deg) * 0.3deg); }
   100% { rotate: 0deg; }
 }
 
