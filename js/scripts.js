@@ -92,7 +92,7 @@ function revealLayer(layerName) {
 
     const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
     elements.forEach(el => {
-      if (!animEnabled) return;
+      if (!animEnabled || layerName === 'colophon') return;
       el.classList.remove('flip-in');
       void el.offsetWidth;
       el.classList.add('flip-in');
