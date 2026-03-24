@@ -417,12 +417,8 @@ body {
   background-size: contain;
 }
 
-.page-layer[data-layer] {
-  animation: none;
-}
-
 .page-layer.flip-in {
-  animation: flip-pop 0.3s steps(3) forwards;
+  animation: flip-pop 0.3s steps(3) forwards !important;
 }
 
 @keyframes flip-pop {
