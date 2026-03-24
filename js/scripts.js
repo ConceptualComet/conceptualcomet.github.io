@@ -167,10 +167,12 @@ function revealLayer(layerName) {
 
 function resetJournal() {
   playRandom(resetSounds);
-  // Show all top layers (default state)
+  const wasAnimEnabled = animEnabled;
+  animEnabled = false;
   revealLayer('earthrise');
   revealLayer('sunita');
   revealLayer('splash');
+  animEnabled = wasAnimEnabled;
 }
 
 // Star navigation positions
