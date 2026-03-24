@@ -81,16 +81,16 @@ function revealLayer(layerName) {
       });
     });
 
-    const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
-    elements.forEach(el => {
-      if (!animEnabled || layerName === 'colophon') return;
-      el.classList.remove('flip-in');
-      void el.offsetWidth;
-      el.classList.add('flip-in');
-      el.addEventListener('animationend', () => {
-        el.classList.remove('flip-in');
-      }, { once: true });
-    });
+//    const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
+//    elements.forEach(el => {
+//      if (!animEnabled || layerName === 'colophon' || layerName === 'about') return;
+//      el.classList.remove('flip-in');
+//     void el.offsetWidth;
+//      el.classList.add('flip-in');
+//      el.addEventListener('animationend', () => {
+//        el.classList.remove('flip-in');
+//      }, { once: true });
+//    });
 
     // Track which layer is active per stack
     if (stackName === 'right') {
@@ -127,15 +127,15 @@ function revealLayer(layerName) {
   });
 
   // Animate content block after display is set
-  const contentEl = document.querySelector('.' + layerName + '-content');
-  if (contentEl && animEnabled && layerName !== 'colophon') {
-    contentEl.classList.remove('flip-in');
-    void contentEl.offsetWidth;
-    contentEl.classList.add('flip-in');
-    contentEl.addEventListener('animationend', () => {
-      contentEl.classList.remove('flip-in');
-    }, { once: true });
-  }
+//  const contentEl = document.querySelector('.' + layerName + '-content');
+//  if (contentEl && animEnabled && layerName !== 'colophon') {
+//    contentEl.classList.remove('flip-in');
+//    void contentEl.offsetWidth;
+//    contentEl.classList.add('flip-in');
+//    contentEl.addEventListener('animationend', () => {
+//      contentEl.classList.remove('flip-in');
+//    }, { once: true });
+//  }
 
   // Animate TV and express-yourself only when shrines is active
   const tv = document.querySelector('.tv');
