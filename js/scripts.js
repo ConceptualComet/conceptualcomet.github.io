@@ -164,7 +164,7 @@ for (const [className, pos] of Object.entries(contentPositions)) {
    const musicPlayer = document.querySelector('.music-player');
      if (musicPlayer) {
       musicPlayer.style.top = (offsetY + renderedHeight * 0.85) + 'px';
-      musicPlayer.style.left = (offsetX + renderedWidth * 0.13) + 'px';
+      musicPlayer.style.left = (offsetX + renderedWidth * 0.14) + 'px';
      }
 }
 
