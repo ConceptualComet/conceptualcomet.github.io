@@ -271,23 +271,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Ruffle motion effects
-document.querySelectorAll('.paper-ruffle').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    if (!animEnabled) return;
-    const deg = (Math.random() * 6 - 3).toFixed(1);
-    el.style.setProperty('--ruffle-deg', deg + 'deg');
-    el.classList.remove('ruffling');
-    void el.offsetWidth; // force reflow so animation restarts
-    el.classList.add('ruffling');
-
-    playRandom(ruffleSounds);
-  });
-
-  el.addEventListener('animationend', () => {
-    el.classList.remove('ruffling');
-  });
-});
 
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.amplitude-play-pause');
@@ -397,6 +380,24 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('[data-layer="splash"]').style.display = 'block';
   document.querySelector('[data-layer="earthrise"]').style.display = 'block';
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
+
+// Ruffle motion effects
+document.querySelectorAll('.paper-ruffle').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (!animEnabled) return;
+    const deg = (Math.random() * 6 - 3).toFixed(1);
+    el.style.setProperty('--ruffle-deg', deg + 'deg');
+    el.classList.remove('ruffling');
+    void el.offsetWidth; // force reflow so animation restarts
+    el.classList.add('ruffling');
+
+    playRandom(ruffleSounds);
+  });
+
+  el.addEventListener('animationend', () => {
+    el.classList.remove('ruffling');
+  });
+});
   
   // Initialize Amplitude after page loads
 Amplitude.init({
@@ -479,22 +480,15 @@ Amplitude.init({
 });
 
 
-  // Loop the full playlist by wrapping last track -> first track.
-  const amplitudeAudio = document.querySelector('audio');
-  if (amplitudeAudio) {
-    amplitudeAudio.addEventListener('ended', () => {
-      const songs = Amplitude.getSongs();
-      if (!songs || !songs.length) return;
-
-      const activeTrack = document.querySelector('.playlist-track.amplitude-active-song-container');
-      const activeIndex = activeTrack ? Number(activeTrack.getAttribute('data-amplitude-song-index')) : -1;
-
-      if (activeIndex === songs.length - 1) {
-        Amplitude.playSongAtIndex(0);
-      }
-    });
-  }
-});
+// Loop the full playlist by wrapping last track -> first track.
+const amplitudeAudio = Amplitude.getAudio();
+if (amplitudeAudio) {
+  amplitudeAudio.addEventListener('ended', () => {
+    const songs = Amplitude.getSongs();
+    if (!songs || !songs.length) return;
+    Amplitude.playSongAtIndex(0);
+  });
+}
 
 // Initialize visualizer on first play
 let visualizerInitialized = false;
@@ -537,12 +531,3 @@ document.addEventListener('click', function(e) {
 });
 
 window.addEventListener('resize', positionElements);
-
-// Show splash on top of everything
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('[data-layer="splash"]').style.display = 'block';
-  document.querySelector('[data-layer="earthrise"]').style.display = 'block';
-  document.querySelector('[data-layer="sunita"]').style.display = 'block';
-  console.log('Amplitude initialized:', Amplitude);
-  console.log('Songs:', Amplitude.getSongs());
-});
