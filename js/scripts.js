@@ -60,13 +60,6 @@ const resetSounds = [
 ];
 resetSounds.forEach(s => s.volume = 0.3);
 
-const ruffleSounds = [
-  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav'),
-  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav'),
-  new Audio('/audio/46631__123jorre456__sliding-paper-on-table.wav')
-];
-ruffleSounds.forEach(s => s.volume = 0.3);
-
 function playRandom(sounds) {
   if (!sfxEnabled) return;
   const sound = sounds[Math.floor(Math.random() * sounds.length)];
@@ -391,23 +384,6 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('[data-layer="earthrise"]').style.display = 'block';
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
 
-// Ruffle motion effects
-document.querySelectorAll('.paper-ruffle').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    if (!animEnabled) return;
-    const deg = (Math.random() * 6 - 3).toFixed(1);
-    el.style.setProperty('--ruffle-deg', deg);
-    el.classList.remove('ruffling');
-    void el.offsetWidth; // force reflow so animation restarts
-    el.classList.add('ruffling');
-
-    playRandom(ruffleSounds);
-  });
-
-  el.addEventListener('animationend', () => {
-    el.classList.remove('ruffling');
-  });
-});
   
   // Initialize Amplitude after page loads
 Amplitude.init({
