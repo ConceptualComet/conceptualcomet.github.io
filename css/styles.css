@@ -57,7 +57,8 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: "Bitcount", monospace; 
+  font-family: "Bitcount", monospace;
+  font-size: inherit;
   color: #fff;
   transform: rotate(-90deg);
   transform-origin: top left;
