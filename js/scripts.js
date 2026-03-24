@@ -203,7 +203,25 @@ document.addEventListener('click', function(event) {
   }
 });
 
+const ruffleSound = new Audio('/audio/676674__cameronpride__page-flip.wav');
+ruffleSound.volume = 0.3;
 
+document.querySelectorAll('.paper-ruffle').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const deg = (Math.random() * 6 - 3).toFixed(1);
+    el.style.setProperty('--ruffle-deg', deg + 'deg');
+    el.classList.remove('ruffling');
+    void el.offsetWidth; // force reflow so animation restarts
+    el.classList.add('ruffling');
+    
+    ruffleSound.currentTime = 0;
+    ruffleSound.play();
+  });
+
+  el.addEventListener('animationend', () => {
+    el.classList.remove('ruffling');
+  });
+});
 
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.amplitude-play-pause');
