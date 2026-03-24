@@ -413,7 +413,7 @@ body {
 
 @keyframes flip-pop {
   0%   { scale: 1; }
-  40%  { scale: 1.02; }
+  40%  { scale: 1.01; }
   100% { scale: 1; }
 }
 
