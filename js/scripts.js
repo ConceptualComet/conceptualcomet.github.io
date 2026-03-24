@@ -490,6 +490,8 @@ if (amplitudeAudio) {
   });
 }
 
+});
+
 // Initialize visualizer on first play
 let visualizerInitialized = false;
 
