@@ -159,6 +159,13 @@ for (const [className, pos] of Object.entries(contentPositions)) {
       el.style.left = (offsetX + renderedWidth * pos.left) + 'px';
     }
   }
+
+ // Position music player
+   const musicPlayer = document.querySelector('.music-player');
+     if (musicPlayer) {
+      musicPlayer.style.top = (offsetY + renderedHeight * 0.53) + 'px';
+      musicPlayer.style.left = (offsetX + renderedWidth * 0.04) + 'px';
+     }
 }
 
 // Mobile navigation
