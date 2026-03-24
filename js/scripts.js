@@ -3,7 +3,7 @@ let animEnabled = true;
 function toggleAnimations() {
   animEnabled = !animEnabled;
   document.body.classList.toggle('reduce-motion', !animEnabled);
-  document.querySelector('.anim-toggle').textContent = animEnabled ? 'ANIM ON' : 'ANIM OFF';
+  document.querySelector('.anim-toggle').classList.toggle('struck', !animEnabled);
 }
 
 const stacks = {
@@ -35,7 +35,7 @@ let sfxEnabled = true;
 
 function toggleSFX() {
   sfxEnabled = !sfxEnabled;
-  document.querySelector('.sfx-toggle').textContent = sfxEnabled ? 'SFX ON' : 'SFX OFF';
+  document.querySelector('.sfx-toggle').classList.toggle('struck', !sfxEnabled);
 }
 
 const revealSounds = [
