@@ -1,3 +1,11 @@
+let animEnabled = true;
+
+function toggleAnimations() {
+  animEnabled = !animEnabled;
+  document.body.classList.toggle('reduce-motion', !animEnabled);
+  document.querySelector('.anim-toggle').textContent = animEnabled ? 'ANIM ON' : 'ANIM OFF';
+}
+
 const stacks = {
   leftTop: ['about', 'earthrise'],
   leftBottom: ['links', 'now', 'sunita'],
@@ -23,6 +31,13 @@ let activeLeftTop = 'earthrise';
 let activeLeftBottom = 'sunita';
 
 // Sound FX
+let sfxEnabled = true;
+
+function toggleSFX() {
+  sfxEnabled = !sfxEnabled;
+  document.querySelector('.sfx-toggle').textContent = sfxEnabled ? 'SFX ON' : 'SFX OFF';
+}
+
 const revealSounds = [
   new Audio('/audio/151220__owlstorm__page-turn-1.wav'),
   new Audio('/audio/531896__bepis__pickup3.wav'),
@@ -53,6 +68,7 @@ const ruffleSounds = [
 ruffleSounds.forEach(s => s.volume = 0.3);
 
 function playRandom(sounds) {
+  if (!sfxEnabled) return;
   const sound = sounds[Math.floor(Math.random() * sounds.length)];
   sound.currentTime = 0;
   sound.play();
@@ -76,6 +92,7 @@ function revealLayer(layerName) {
 
     const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
     elements.forEach(el => {
+      if (!animEnabled) return;
       el.classList.remove('flip-in');
       void el.offsetWidth;
       el.classList.add('flip-in');
@@ -257,12 +274,13 @@ document.addEventListener('click', function(event) {
 // Ruffle motion effects
 document.querySelectorAll('.paper-ruffle').forEach(el => {
   el.addEventListener('mouseenter', () => {
+    if (!animEnabled) return;
     const deg = (Math.random() * 6 - 3).toFixed(1);
     el.style.setProperty('--ruffle-deg', deg + 'deg');
     el.classList.remove('ruffling');
     void el.offsetWidth; // force reflow so animation restarts
     el.classList.add('ruffling');
-    
+
     playRandom(ruffleSounds);
   });
 
