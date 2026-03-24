@@ -74,8 +74,6 @@ function playRandom(sounds) {
   sound.play();
 }
 
-
-
 // Reveals & Resets
 function revealLayer(layerName) {
   playRandom(revealSounds);
@@ -100,17 +98,6 @@ function revealLayer(layerName) {
         el.classList.remove('flip-in');
       }, { once: true });
     });
-
-    // Animate content block too
-    const contentEl = document.querySelector('.' + layerName + '-content');
-    if (contentEl && animEnabled && layerName !== 'colophon') {
-      contentEl.classList.remove('flip-in');
-      void contentEl.offsetWidth;
-      contentEl.classList.add('flip-in');
-      contentEl.addEventListener('animationend', () => {
-        contentEl.classList.remove('flip-in');
-      }, { once: true });
-    }
 
     // Track which layer is active per stack
     if (stackName === 'right') {
@@ -146,7 +133,18 @@ function revealLayer(layerName) {
     }
   });
 
-// Animate TV and express-yourself only when shrines is active
+  // Animate content block after display is set
+  const contentEl = document.querySelector('.' + layerName + '-content');
+  if (contentEl && animEnabled && layerName !== 'colophon') {
+    contentEl.classList.remove('flip-in');
+    void contentEl.offsetWidth;
+    contentEl.classList.add('flip-in');
+    contentEl.addEventListener('animationend', () => {
+      contentEl.classList.remove('flip-in');
+    }, { once: true });
+  }
+
+  // Animate TV and express-yourself only when shrines is active
   const tv = document.querySelector('.tv');
   const expressYourself = document.querySelector('.express-yourself');
   
@@ -166,7 +164,6 @@ function revealLayer(layerName) {
     }
   }
 }
-
 
 function resetJournal() {
   playRandom(resetSounds);
