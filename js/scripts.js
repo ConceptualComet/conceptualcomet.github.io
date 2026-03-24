@@ -41,13 +41,13 @@ function toggleSFX() {
 const revealSounds = [
   new Audio('/audio/151220__owlstorm__page-turn-1.wav'),
   new Audio('/audio/531896__bepis__pickup3.wav'),
-  new Audio('/audio/531898__bepis__pickup1.wav')
+  new Audio('/audio/531898__bepis__pickup1.wav'),
   new Audio('/audio/531899__bepis__pickup7.wav'),
   new Audio('/audio/531908__bepis__wave4.wav'),
-  new Audio('/audio/651514__1bob__paper.wav')
+  new Audio('/audio/651514__1bob__paper.wav'),
   new Audio('/audio/676674__cameronpride__page-flip.wav'),
   new Audio('/audio/684078__geoff-bremner-audio__paper-handling-2.wav'),
-  new Audio('/audio/82378__gynation__paper-flip-2.wav')
+  new Audio('/audio/82378__gynation__paper-flip-2.wav'),
   new Audio('/audio/828802__onlyoz__paper-page-flip.wav'),
   new Audio('/audio/842183__aardsreal__page-turn-free.wav'),
 ];
@@ -56,7 +56,7 @@ revealSounds.forEach(s => s.volume = 0.3);
 const resetSounds = [
   new Audio('/audio/416179__inspectorj__book-flipping-through-pages-a.wav'),
   new Audio('/audio/63318__flag2__page-turn-please-turn-over-pto-paper_turn_over.wav'),
-  new Audio('531892__bepis__crumple9.wav')
+  new Audio('/audio/531892__bepis__crumple9.wav')
 ];
 resetSounds.forEach(s => s.volume = 0.3);
 
