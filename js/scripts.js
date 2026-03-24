@@ -101,6 +101,17 @@ function revealLayer(layerName) {
       }, { once: true });
     });
 
+    // Animate content block too
+    const contentEl = document.querySelector('.' + layerName + '-content');
+    if (contentEl && animEnabled && layerName !== 'colophon') {
+      contentEl.classList.remove('flip-in');
+      void contentEl.offsetWidth;
+      contentEl.classList.add('flip-in');
+      contentEl.addEventListener('animationend', () => {
+        contentEl.classList.remove('flip-in');
+      }, { once: true });
+    }
+
     // Track which layer is active per stack
     if (stackName === 'right') {
       activeRight = layerName;
