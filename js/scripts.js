@@ -116,6 +116,11 @@ function revealLayer(layerName) {
     }
   });
 
+  const colophonDef = document.querySelector('.colophon-definition-content');
+    if (colophonDef) {
+    colophonDef.style.display = activeRight === 'colophon' ? 'block' : 'none';
+    }
+
   // Show content for active layer on left top
   leftTopContentAreas.forEach(area => {
     const content = document.querySelector('.' + area + '-content');
