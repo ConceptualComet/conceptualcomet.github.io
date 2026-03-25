@@ -1,10 +1,4 @@
-let animEnabled = true;
-
-function toggleAnimations() {
-  animEnabled = !animEnabled;
-  document.body.classList.toggle('reduce-motion', !animEnabled);
-  document.querySelector('.anim-toggle').classList.toggle('struck', !animEnabled);
-}
+// Page structure & initial positions
 
 const stacks = {
   leftTop: ['about', 'earthrise'],
@@ -30,6 +24,27 @@ const leftBottomContentAreas = ['now', 'links'];
 let activeRight = 'splash';
 let activeLeftTop = 'earthrise';
 let activeLeftBottom = 'sunita';
+
+const starPositions = {
+  'blog-star':       { top: 0.13, left: 0.797 },
+  'shrines-star':    { top: 0.18, left: 0.796 },
+  'curriculum-star': { top: 0.22, left: 0.794 },
+  'colophon-star':   { top: 0.27, left: 0.795 },
+  'now-star':        { top: 0.32, left: 0.792 },
+  'about-star':      { top: 0.37, left: 0.793 },
+  'links-star':      { top: 0.42, left: 0.791 },
+  'reset-star':      { top: 0.53, left: 0.795 }
+};
+
+// Visual FX
+
+let animEnabled = true;
+
+function toggleAnimations() {
+  animEnabled = !animEnabled;
+  document.body.classList.toggle('reduce-motion', !animEnabled);
+  document.querySelector('.anim-toggle').classList.toggle('struck', !animEnabled);
+}
 
 // Sound FX
 let sfxEnabled = true;
@@ -68,7 +83,7 @@ function playRandom(sounds) {
   sound.play();
 }
 
-// Reveals & Resets
+// Reveal Layer Function
 function revealLayer(layerName) {
   playRandom(revealSounds);
   for (const [stackName, layers] of Object.entries(stacks)) {
@@ -82,16 +97,6 @@ function revealLayer(layerName) {
       });
     });
 
-//    const elements = document.querySelectorAll(`[data-layer="${layerName}"]`);
-//    elements.forEach(el => {
-//      if (!animEnabled || layerName === 'colophon' || layerName === 'about') return;
-//      el.classList.remove('flip-in');
-//     void el.offsetWidth;
-//      el.classList.add('flip-in');
-//      el.addEventListener('animationend', () => {
-//        el.classList.remove('flip-in');
-//      }, { once: true });
-//    });
 
     // Track which layer is active per stack
     if (stackName === 'right') {
@@ -127,16 +132,6 @@ function revealLayer(layerName) {
     }
   });
 
-  // Animate content block after display is set
-//  const contentEl = document.querySelector('.' + layerName + '-content');
-//  if (contentEl && animEnabled && layerName !== 'colophon') {
-//    contentEl.classList.remove('flip-in');
-//    void contentEl.offsetWidth;
-//    contentEl.classList.add('flip-in');
-//    contentEl.addEventListener('animationend', () => {
-//      contentEl.classList.remove('flip-in');
-//    }, { once: true });
-//  }
 
   // Animate TV and express-yourself only when shrines is active
   const tv = document.querySelector('.tv');
@@ -159,6 +154,7 @@ function revealLayer(layerName) {
   }
 }
 
+// Reset journal function
 function resetJournal() {
   playRandom(resetSounds);
   const wasAnimEnabled = animEnabled;
@@ -169,18 +165,8 @@ function resetJournal() {
   animEnabled = wasAnimEnabled;
 }
 
-// Star navigation positions
-const starPositions = {
-  'blog-star':       { top: 0.13, left: 0.797 },
-  'shrines-star':    { top: 0.18, left: 0.796 },
-  'curriculum-star': { top: 0.22, left: 0.794 },
-  'colophon-star':   { top: 0.27, left: 0.795 },
-  'now-star':        { top: 0.32, left: 0.792 },
-  'about-star':      { top: 0.37, left: 0.793 },
-  'links-star':      { top: 0.42, left: 0.791 },
-  'reset-star':      { top: 0.53, left: 0.795 }
-};
 
+// Position elements function
 function positionElements() {
   const vw = window.innerWidth;
   const vh = window.innerHeight;
@@ -212,7 +198,7 @@ if (splashNSFW) {
   splashNSFW.style.width = (renderedWidth * 0.10) + 'px';
 }
 
-//Position content blocks
+// Position content blocks
 for (const [className, pos] of Object.entries(contentPositions)) {
   const el = document.querySelector('.' + className);
   if (el) {
@@ -275,7 +261,7 @@ document.addEventListener('click', function(event) {
   }
 });
 
-
+// Music Play/Pause
 document.addEventListener('click', function(e) {
   const btn = e.target.closest('.amplitude-play-pause');
   if (!btn) return;
@@ -294,99 +280,20 @@ document.addEventListener('click', function(e) {
     btn.textContent = audio && !audio.paused ? '♫ PLAYING...' : '♫ PAUSED';
   }, 50);
 });
-// Visualizer
-let visualizerAudioContext = null;
-let visualizerAnalyser = null;
-let visualizerDataArray = null;
-let visualizerDrawStarted = false;
-let visualizerSourceNode = null;
 
-function initVisualizer() {
-  const canvas = document.getElementById('visualizer');
-  if (!canvas) return false;
 
-  // Keep canvas bitmap in sync with rendered size, or bars may not show.
-  const displayWidth = Math.max(1, Math.floor(canvas.clientWidth || 150));
-  const displayHeight = Math.max(1, Math.floor(canvas.clientHeight || 24));
-  canvas.width = displayWidth;
-  canvas.height = displayHeight;
-
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return false;
-
-  const audioContext = visualizerAudioContext || new (window.AudioContext || window.webkitAudioContext)();
-  visualizerAudioContext = audioContext;
-  if (audioContext.state === 'suspended') {
-    audioContext.resume();
-  }
-  
-  // Get Amplitude's audio element
-const audio = Amplitude.getAudio();
-  if (!audio) {
-    console.log('No audio element found');
-    return false;
-  }
-
-  if (!visualizerAnalyser) {
-    visualizerAnalyser = audioContext.createAnalyser();
-    visualizerAnalyser.fftSize = 64;
-  }
-
-  if (!visualizerSourceNode) {
-    try {
-      visualizerSourceNode = audioContext.createMediaElementSource(audio);
-      visualizerSourceNode.connect(visualizerAnalyser);
-      visualizerAnalyser.connect(audioContext.destination);
-    } catch (err) {
-      console.log('Visualizer source error:', err);
-      return false;
-    }
-  }
-
-  const bufferLength = visualizerAnalyser.frequencyBinCount;
-  if (!visualizerDataArray || visualizerDataArray.length !== bufferLength) {
-    visualizerDataArray = new Uint8Array(bufferLength);
-  }
-  
-  function draw() {
-    requestAnimationFrame(draw);
-    visualizerAnalyser.getByteFrequencyData(visualizerDataArray);
-    
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    const barWidth = canvas.width / bufferLength;
-    let x = 0;
-
-for (let i = 0; i < bufferLength; i++) {
-  const barHeight = (visualizerDataArray[i] / 255) * canvas.height;
-  
-  const gradient = ctx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
-  gradient.addColorStop(0, '#01cdfe');  // cyan at bottom
-  gradient.addColorStop(1, '#fc6a28');  // orange at top
-  
-  ctx.fillStyle = gradient;
-  ctx.fillRect(x, canvas.height - barHeight, barWidth - 1, barHeight);
-  x += barWidth;
-}
-  }
-  
-  if (!visualizerDrawStarted) {
-    visualizerDrawStarted = true;
-    draw();
-  }
-  return true;
-}
+// DOM event listener to load everything
 
 window.addEventListener('DOMContentLoaded', () => {
-  positionElements();
   
+// Load elements with splash on top
+  positionElements();
   document.querySelector('[data-layer="splash"]').style.display = 'block';
   document.querySelector('[data-layer="earthrise"]').style.display = 'block';
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
 
   
-  // Initialize Amplitude after page loads
+// Initialize Amplitude
 Amplitude.init({
   continue_next: true,
   shuffle_on: true,
@@ -479,44 +386,6 @@ if (amplitudeAudio) {
 
 });
 
-// Initialize visualizer on first play
-let visualizerInitialized = false;
 
-function initVisualizerOnce() {
-  if (visualizerInitialized) return;
-  visualizerInitialized = initVisualizer();
-}
-
-function initVisualizerWithRetry(attempt = 0) {
-  if (visualizerInitialized) return;
-
-  initVisualizerOnce();
-  if (visualizerInitialized) return;
-
-  if (attempt < 8) {
-    setTimeout(() => initVisualizerWithRetry(attempt + 1), 120);
-  }
-}
-
-// Hook into Amplitude's play event
-document.addEventListener('click', function(e) {
-  if (e.target.closest('.player-btn')) {
-    // If no active song is selected yet, force first track on first play click.
-    const playPauseBtn = e.target.closest('.amplitude-play-pause');
-    if (playPauseBtn) {
-      const meta = Amplitude.getActiveSongMetadata();
-      if (!meta || !meta.url) {
-        Amplitude.playSongAtIndex(0);
-      }
-    }
-    if (!visualizerAudioContext) {
-      visualizerAudioContext = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (visualizerAudioContext.state === 'suspended') {
-      visualizerAudioContext.resume();
-    }
-    initVisualizerWithRetry();
-  }
-});
-
+// Event listener to reposition elements if window is resized
 window.addEventListener('resize', positionElements);
