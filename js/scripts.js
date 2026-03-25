@@ -137,7 +137,6 @@ function revealLayer(layerName) {
     }
   });
 
-
   // Animate TV and express-yourself only when shrines is active
   const tv = document.querySelector('.tv');
   const expressYourself = document.querySelector('.express-yourself');
