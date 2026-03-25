@@ -130,6 +130,12 @@ body {
     color: #2f2c48;
  }
 
+ p {
+  font-family: "Caveat", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+ }
+
 /* Fonts */
 .kolker-brush-regular {
   font-family: "Kolker Brush", cursive;
