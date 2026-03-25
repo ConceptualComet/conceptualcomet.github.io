@@ -687,11 +687,9 @@ body {
   }
  
  /* Hide music player */
- @media (max-width: 768px) {
   .music-player {
     display: none;
   }
- }
  
   /* Hide all the layered folder stuff */
   .page-layer,
