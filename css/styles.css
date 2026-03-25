@@ -451,22 +451,6 @@ body {
   background-image: url(/img/splash.png);
 }
 
-.splash-NSFW {
-  position: absolute;
-  z-index: 25;
-  background-image: url(/img/NSFW.gif);
-  background-size: contain;
-  background-repeat: no-repeat;
-  aspect-ratio: 135 / 83;
-  container-type: inline-size;
-}
-
-.splash-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 .astronaut-orbit {
  z-index: 14; 
  animation: orbit 8s ease-in-out infinite;
