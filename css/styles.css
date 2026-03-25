@@ -150,7 +150,7 @@ body {
     "ELXP" 0;
 }
 
-/* Music Player */
+/* Music Player & Control Buttons */
 .music-player {
   position: absolute;
   z-index: 200;
@@ -240,7 +240,6 @@ body {
     height: 35px;
 }
 
-/* Star Labels */
 .star-label {
   position: absolute;
   top: 50%;
@@ -685,7 +684,7 @@ body {
     min-height: auto;
   }
  
- /* Hide music player */
+ /* Hide music player & control buttons */
   .music-player {
     display: none;
   }
