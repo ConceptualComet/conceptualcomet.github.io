@@ -120,6 +120,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  font-family: "Caveat", sans-serif;
 }
 
 .section-header {
@@ -130,11 +131,7 @@ body {
     color: #2f2c48;
  }
 
- p {
-  font-family: "Caveat", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
- }
+ 
 
 /* Fonts */
 .kolker-brush-regular {
