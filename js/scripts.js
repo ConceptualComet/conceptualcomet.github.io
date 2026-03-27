@@ -43,7 +43,9 @@ let animEnabled = true;
 function toggleAnimations() {
   animEnabled = !animEnabled;
   document.body.classList.toggle('reduce-motion', !animEnabled);
-  document.querySelector('.anim-toggle').classList.toggle('struck', !animEnabled);
+  const btn = document.querySelector('.anim-toggle');
+  btn.classList.toggle('struck', !animEnabled);
+  btn.setAttribute('aria-pressed', String(animEnabled));
 }
 
 // Sound FX
@@ -51,7 +53,9 @@ let sfxEnabled = true;
 
 function toggleSFX() {
   sfxEnabled = !sfxEnabled;
-  document.querySelector('.sfx-toggle').classList.toggle('struck', !sfxEnabled);
+  const btn = document.querySelector('.sfx-toggle');
+  btn.classList.toggle('struck', !sfxEnabled);
+  btn.setAttribute('aria-pressed', String(sfxEnabled));
 }
 
 const revealSounds = [
@@ -222,18 +226,64 @@ for (const [className, pos] of Object.entries(contentPositions)) {
      }
 }
 
-// Mobile navigation
+// Mobile navigation focus trap
+function getFocusable(container) {
+  return Array.from(container.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  ));
+}
+
+var mobileNavTrapHandler = function(e) {
+  var nav = document.getElementById('mobile-nav');
+  if (!nav) return;
+  var focusable = getFocusable(nav);
+  var first = focusable[0];
+  var last = focusable[focusable.length - 1];
+  if (e.key === 'Tab') {
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+  if (e.key === 'Escape') {
+    closeMobileNav();
+  }
+};
+
 function toggleMobileNav() {
   const nav = document.getElementById('mobile-nav');
-  if (nav) {
-    nav.classList.toggle('open');
+  const btn = document.querySelector('.mobile-menu-btn');
+  if (!nav) return;
+  const isOpening = !nav.classList.contains('open');
+  nav.classList.toggle('open');
+  if (btn) btn.setAttribute('aria-expanded', String(isOpening));
+  if (isOpening) {
+    nav.addEventListener('keydown', mobileNavTrapHandler);
+    const focusable = getFocusable(nav);
+    if (focusable.length) focusable[0].focus();
+  } else {
+    nav.removeEventListener('keydown', mobileNavTrapHandler);
+    if (btn) btn.focus();
   }
 }
 
 function closeMobileNav() {
   const nav = document.getElementById('mobile-nav');
+  const btn = document.querySelector('.mobile-menu-btn');
   if (nav) {
     nav.classList.remove('open');
+    nav.removeEventListener('keydown', mobileNavTrapHandler);
+  }
+  if (btn) {
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
   }
 }
 
