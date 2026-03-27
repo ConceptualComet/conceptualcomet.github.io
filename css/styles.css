@@ -525,6 +525,12 @@ body {
   transform: rotate(-1deg);
 }
 
+.multi-column {
+  column-count: 2;
+  column-gap: 20px;
+  column-fill: balance;
+}
+
 .links-content {
   transform: rotate(-13deg);
 }
@@ -549,7 +555,7 @@ body {
 
 
 /* ==================== */
-/* MOBILE LAYOUT        */
+/*     MOBILE LAYOUT    */
 /* ==================== */
 
 @media (max-width: 768px) {
