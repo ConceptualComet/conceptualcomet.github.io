@@ -29,10 +29,10 @@ const starPositions = {
   'blog-star':       { top: 0.13, left: 0.797 },
   'shrines-star':    { top: 0.18, left: 0.796 },
   'curriculum-star': { top: 0.22, left: 0.794 },
-  'colophon-star':   { top: 0.27, left: 0.795 },
-  'now-star':        { top: 0.32, left: 0.792 },
-  'about-star':      { top: 0.37, left: 0.793 },
-  'links-star':      { top: 0.42, left: 0.791 },
+  'now-star':        { top: 0.27, left: 0.795 },
+  'about-star':      { top: 0.32, left: 0.792 },
+  'links-star':      { top: 0.37, left: 0.793 },
+  'colophon-star':   { top: 0.42, left: 0.791 },
   'reset-star':      { top: 0.53, left: 0.795 }
 };
 
