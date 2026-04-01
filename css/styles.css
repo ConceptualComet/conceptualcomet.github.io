@@ -249,7 +249,7 @@ body {
    height: 34px;
 }
 
-.shrines-star {
+.works-star {
    background-image: url(/img/shrines-star.png);
    width: 34px;
    height: 34px;
@@ -279,7 +279,7 @@ body {
     height: 34px;
 }
 
-.links-star {
+.contact-star {
     background-image: url(/img/links-star.png);
     width: 36px;
     height: 35px;
@@ -315,12 +315,12 @@ body {
 }
 
 .blog-star .star-label       { --char-count: 4;  --label-width: 4ch;  --type-speed: 0.3s; }
-.shrines-star .star-label    { --char-count: 7;  --label-width: 7ch;  --type-speed: 0.5s; }
+.works-star .star-label    { --char-count: 7;  --label-width: 7ch;  --type-speed: 0.5s; }
 .curriculum-star .star-label { --char-count: 10; --label-width: 10ch; --type-speed: 0.7s; }
 .colophon-star .star-label   { --char-count: 8;  --label-width: 8ch;  --type-speed: 0.5s; }
 .now-star .star-label        { --char-count: 3;  --label-width: 3ch;  --type-speed: 0.2s; }
 .about-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
-.links-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
+.contact-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
 .reset-star .star-label      { --char-count: 5; --label-width: 5ch; --type-speed: 0.35s; }
 
 
@@ -451,7 +451,7 @@ body {
   background-image: url(/img/busts.png);
 }
 
-.shrines {
+.works {
   z-index: 7;
   background-image: url(/img/shrines.png);
 }
@@ -520,7 +520,7 @@ body {
  background-image: url(/img/earthrise.png);
 }
 
-.links {
+.contact {
  z-index: 18;
  background-image: url(/img/links.png);
 }
@@ -571,7 +571,7 @@ body {
     color: #000;
  }
 
-.shrines-content {
+.works-content {
   z-index: 7;
 }
 
@@ -593,7 +593,7 @@ body {
   column-span: all;
 }
 
-.links-content {
+.contact-content {
   transform: rotate(-13deg);
 }
 
@@ -816,9 +816,9 @@ body {
   /* Reset any specific content rotations */
   .about-content,
   .now-content,
-  .links-content,
+  .contact-content,
   .blog-content,
-  .shrines-content {
+  .works-content {
     transform: none !important;
   }
 }
