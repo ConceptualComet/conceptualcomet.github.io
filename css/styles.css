@@ -148,9 +148,9 @@
   .mobile-menu-btn,
   .mobile-nav,
   .mobile-banner,
-  .now-content.section-header,
-  .about-content.section-header,
-  .contact-content.section-header {
+  .now-content .section-header,
+  .about-content .section-header,
+  .contact-content .section-header {
     display: none !important;
   }
 
