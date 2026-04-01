@@ -334,7 +334,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Email obfuscation
   const user = 'comet';
-  const domain = 'conceptualcomet.com';
+  const domain = 'conceptualcomet.space';
   const link = document.getElementById('contact-link');
   if (link) {
     link.addEventListener('click', function () {
