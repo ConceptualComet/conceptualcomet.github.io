@@ -3,12 +3,12 @@
 const stacks = {
   leftTop: ['about', 'earthrise'],
   leftBottom: ['contact', 'now', 'sunita'],
-  right: ['colophon', 'curriculum', 'works', 'blog', 'splash']
+  right: ['colophon', 'curriculum', 'workshop', 'blog', 'splash']
 };
 
 const contentPositions = {
   'blog-content': { top: 0.191, left: 0.543, width: 0.19, height: 0.565 },
-  'works-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
+  'workshop-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
   'curriculum-content': { top: 0.33, left: 0.54, width: 0.22, height: 0.5 },
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.30 },
   'colophon-definition-content': { top: 0.54, left: 0.54, width: 0.10, height: 0.30 },
@@ -17,7 +17,7 @@ const contentPositions = {
   'contact-content': { top: 0.54, left: 0.27, width: 0.10, height: 0.20 }
 };
 
-const rightContentAreas = ['blog', 'works', 'curriculum', 'colophon'];
+const rightContentAreas = ['blog', 'workshop', 'curriculum', 'colophon'];
 const leftTopContentAreas = ['about'];
 const leftBottomContentAreas = ['now', 'contact'];
 
@@ -27,7 +27,7 @@ let activeLeftBottom = 'sunita';
 
 const starPositions = {
   'blog-star':       { top: 0.13, left: 0.797 },
-  'works-star':    { top: 0.18, left: 0.796 },
+  'workshop-star':    { top: 0.18, left: 0.796 },
   'curriculum-star': { top: 0.22, left: 0.794 },
   'now-star':        { top: 0.27, left: 0.795 },
   'about-star':      { top: 0.32, left: 0.792 },
@@ -141,12 +141,12 @@ function revealLayer(layerName) {
     }
   });
 
-  // Animate TV and express-yourself only when works is active
+  // Animate TV and express-yourself only when workshop is active
   const tv = document.querySelector('.tv');
   const expressYourself = document.querySelector('.express-yourself');
   
   if (tv) {
-    if (activeRight === 'works') {
+    if (activeRight === 'workshop') {
       tv.classList.add('animate');
     } else {
       tv.classList.remove('animate');
@@ -154,7 +154,7 @@ function revealLayer(layerName) {
   }
   
   if (expressYourself) {
-    if (activeRight === 'works') {
+    if (activeRight === 'workshop') {
       expressYourself.classList.add('animate');
     } else {
       expressYourself.classList.remove('animate');
