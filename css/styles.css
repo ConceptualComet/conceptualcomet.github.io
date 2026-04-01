@@ -603,7 +603,7 @@ body {
 .multi-column {
   column-count: 2;
   column-gap: 20px;
-  column-fill: balance;
+  column-fill: auto;
 }
 
 .multi-column h2 {
