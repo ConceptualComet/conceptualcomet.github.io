@@ -230,7 +230,6 @@ body {
   cursor: pointer;
   z-index: 50;
   transition: filter 0.2s ease, transform 0.2s ease;
-  /* Button reset — star navs are now <button> elements */
   background-color: transparent;
   border: none;
   padding: 0;
@@ -315,12 +314,12 @@ body {
 }
 
 .blog-star .star-label       { --char-count: 4;  --label-width: 4ch;  --type-speed: 0.3s; }
-.works-star .star-label    { --char-count: 7;  --label-width: 7ch;  --type-speed: 0.5s; }
+.works-star .star-label    { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
 .curriculum-star .star-label { --char-count: 10; --label-width: 10ch; --type-speed: 0.7s; }
 .colophon-star .star-label   { --char-count: 8;  --label-width: 8ch;  --type-speed: 0.5s; }
 .now-star .star-label        { --char-count: 3;  --label-width: 3ch;  --type-speed: 0.2s; }
 .about-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
-.contact-star .star-label      { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
+.contact-star .star-label      { --char-count: 7;  --label-width: 7ch;  --type-speed: 0.5s; }
 .reset-star .star-label      { --char-count: 5; --label-width: 5ch; --type-speed: 0.35s; }
 
 
