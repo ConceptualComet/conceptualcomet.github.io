@@ -328,27 +328,25 @@ document.addEventListener('click', function(e) {
 });
 
 
-// Email obfuscation
-
-const user = 'comet';
-const domain = 'conceptualcomet.com';
-
-const link = document.getElementById('contact-link');
-link.addEventListener('click', function () {
-  window.location.href = 'mai' + 'lto:' + user + '@' + domain;
-});
-
-
 // DOM event listener to load everything
 
 window.addEventListener('DOMContentLoaded', () => {
+
+// Email obfuscation
+  const user = 'comet';
+  const domain = 'conceptualcomet.com';
+  const link = document.getElementById('contact-link');
+  if (link) {
+    link.addEventListener('click', function () {
+      window.location.href = 'mai' + 'lto:' + user + '@' + domain;
+    });
+  }
   
 // Load elements with splash on top
   positionElements();
   document.querySelector('[data-layer="splash"]').style.display = 'block';
   document.querySelector('[data-layer="earthrise"]').style.display = 'block';
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
-
   
 // Initialize Amplitude
 Amplitude.init({
