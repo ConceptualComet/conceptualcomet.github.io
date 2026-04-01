@@ -9,11 +9,11 @@ const stacks = {
 const contentPositions = {
   'blog-content': { top: 0.191, left: 0.543, width: 0.19, height: 0.565 },
   'works-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
-  'curriculum-content': { top: 0.30, left: 0.54, width: 0.22, height: 0.54 },
+  'curriculum-content': { top: 0.31, left: 0.54, width: 0.22, height: 0.54 },
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.30 },
   'colophon-definition-content': { top: 0.54, left: 0.54, width: 0.10, height: 0.30 },
   'now-content': { top: 0.6, left: 0.225, width: 0.18, height: 0.185 },
-  'about-content': { top: 0.20, left: 0.20, width: 0.10, height: 0.20 },
+  'about-content': { top: 0.19, left: 0.20, width: 0.10, height: 0.20 },
   'contact-content': { top: 0.54, left: 0.27, width: 0.10, height: 0.20 }
 };
 
