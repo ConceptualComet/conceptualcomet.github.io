@@ -251,7 +251,7 @@ body {
    height: 34px;
 }
 
-.works-star {
+.workshop-star {
    background-image: url(/img/shrines-star.png);
    width: 34px;
    height: 34px;
@@ -317,7 +317,7 @@ body {
 }
 
 .blog-star .star-label       { --char-count: 4;  --label-width: 4ch;  --type-speed: 0.3s; }
-.works-star .star-label    { --char-count: 5;  --label-width: 5ch;  --type-speed: 0.35s; }
+.workshop-star .star-label    { --char-count: 8;  --label-width: 8ch;  --type-speed: 0.5s; }
 .curriculum-star .star-label { --char-count: 10; --label-width: 10ch; --type-speed: 0.7s; }
 .colophon-star .star-label   { --char-count: 8;  --label-width: 8ch;  --type-speed: 0.5s; }
 .now-star .star-label        { --char-count: 3;  --label-width: 3ch;  --type-speed: 0.2s; }
@@ -453,7 +453,7 @@ body {
   background-image: url(/img/busts.png);
 }
 
-.works {
+.workshop {
   z-index: 7;
   background-image: url(/img/shrines.png);
 }
@@ -592,7 +592,7 @@ body {
   color: #fff;
 }
 
-.works-content {
+.workshop-content {
   z-index: 7;
 }
 
@@ -845,7 +845,7 @@ body {
   .now-content,
   .contact-content,
   .blog-content,
-  .works-content {
+  .workshop-content {
     transform: none !important;
   }
 }
