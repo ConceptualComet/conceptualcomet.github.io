@@ -13,7 +13,7 @@ const contentPositions = {
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.30 },
   'colophon-definition-content': { top: 0.54, left: 0.54, width: 0.10, height: 0.30 },
   'now-content': { top: 0.6, left: 0.225, width: 0.18, height: 0.185 },
-  'about-content': { top: 0.19, left: 0.20, width: 0.10, height: 0.20 },
+  'about-content': { top: 0.19, left: 0.20, width: 0.10, height: 0.21 },
   'contact-content': { top: 0.54, left: 0.27, width: 0.10, height: 0.20 }
 };
 
