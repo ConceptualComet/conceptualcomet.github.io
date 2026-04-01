@@ -328,6 +328,17 @@ document.addEventListener('click', function(e) {
 });
 
 
+// Email obfuscation
+
+const user = 'comet';
+const domain = 'conceptualcomet.com';
+
+const link = document.getElementById('contact-link');
+link.addEventListener('click', function () {
+  window.location.href = 'mai' + 'lto:' + user + '@' + domain;
+});
+
+
 // DOM event listener to load everything
 
 window.addEventListener('DOMContentLoaded', () => {
