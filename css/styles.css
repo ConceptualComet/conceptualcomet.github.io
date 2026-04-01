@@ -138,6 +138,35 @@
   100% { transform: rotate(3deg); }
 }
 
+.sketch-circle {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.sketch-circle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 250%;
+  pointer-events: none;
+}
+
+.sketch-circle ellipse {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-linecap: round;
+}
+
+.sketch-circle:hover ellipse {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.6s ease;
+}
 
 /* ==================== */
 /*   DESKTOP LAYOUT     */
