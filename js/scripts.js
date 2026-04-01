@@ -347,7 +347,9 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('[data-layer="splash"]').style.display = 'block';
   document.querySelector('[data-layer="earthrise"]').style.display = 'block';
   document.querySelector('[data-layer="sunita"]').style.display = 'block';
-  
+  document.querySelector('.contact-content').style.display = 'none';
+  document.querySelector('.colophon-definition-content').style.display = 'none';
+
 // Initialize Amplitude
 Amplitude.init({
   continue_next: true,
