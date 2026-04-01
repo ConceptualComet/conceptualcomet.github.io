@@ -597,6 +597,10 @@ body {
 
 .contact-content {
   transform: rotate(-13deg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog-content {
