@@ -588,6 +588,10 @@ body {
     color: #000;
  }
 
+.curriculum-content .section-header {
+  color: #fff;
+}
+
 .works-content {
   z-index: 7;
 }
