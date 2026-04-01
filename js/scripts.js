@@ -137,7 +137,7 @@ function revealLayer(layerName) {
   leftBottomContentAreas.forEach(area => {
     const content = document.querySelector('.' + area + '-content');
     if (content) {
-      content.style.display = area === activeLeftBottom ? 'block' : 'none';
+      content.style.display = area === activeLeftBottom ? (area === 'links' ? 'flex' : 'block') : 'none';
     }
   });
 
