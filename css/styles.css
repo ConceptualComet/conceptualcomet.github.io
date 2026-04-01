@@ -568,22 +568,15 @@ body {
 .page-content a {
   color: #463F8F;
   font-weight: bold;
-}
-
-.page-content a:link {
-  text-decoration: none;
-}
-
-.page-content a:visited {
   text-decoration: none;
 }
 
 .page-content a:hover {
-  text-decoration: underline;
+  border-bottom: 2px solid #463F8F;
 }
 
 .page-content a:active {
-  text-decoration: underline;
+  border-bottom: 2px solid #463F8F;
 }
 
 .section-header {
