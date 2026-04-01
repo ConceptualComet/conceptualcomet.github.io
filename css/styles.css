@@ -565,6 +565,27 @@ body {
   font-size: 1.2rem;
 }
 
+.page-content a {
+  color: #2f2c48;
+  font-weight: bold;
+}
+
+.page-content a:link {
+  text-decoration: none;
+}
+
+.page-content a:visited {
+  text-decoration: none;
+}
+
+.page-content a:hover {
+  text-decoration: underline;
+}
+
+.page-content a:active {
+  text-decoration: underline;
+}
+
 .section-header {
     display: block;
     font-family: "Kolker Brush", cursive;
@@ -601,6 +622,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 3rem;
 }
 
 .blog-content {
