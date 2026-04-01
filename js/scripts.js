@@ -2,24 +2,24 @@
 
 const stacks = {
   leftTop: ['about', 'earthrise'],
-  leftBottom: ['links', 'now', 'sunita'],
-  right: ['colophon', 'curriculum', 'shrines', 'blog', 'splash']
+  leftBottom: ['contact', 'now', 'sunita'],
+  right: ['colophon', 'curriculum', 'works', 'blog', 'splash']
 };
 
 const contentPositions = {
   'blog-content': { top: 0.191, left: 0.543, width: 0.19, height: 0.565 },
-  'shrines-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
+  'works-content': { top: 0.24, left: 0.55, width: 0.18, height: 0.50 },
   'curriculum-content': { top: 0.20, left: 0.54, width: 0.22, height: 0.54 },
   'colophon-content': { top: 0.12, left: 0.54, width: 0.22, height: 0.30 },
   'colophon-definition-content': { top: 0.54, left: 0.54, width: 0.10, height: 0.30 },
   'now-content': { top: 0.6, left: 0.225, width: 0.18, height: 0.185 },
   'about-content': { top: 0.20, left: 0.20, width: 0.10, height: 0.20 },
-  'links-content': { top: 0.54, left: 0.27, width: 0.10, height: 0.20 }
+  'contact-content': { top: 0.54, left: 0.27, width: 0.10, height: 0.20 }
 };
 
-const rightContentAreas = ['blog', 'shrines', 'curriculum', 'colophon'];
+const rightContentAreas = ['blog', 'works', 'curriculum', 'colophon'];
 const leftTopContentAreas = ['about'];
-const leftBottomContentAreas = ['now', 'links'];
+const leftBottomContentAreas = ['now', 'contact'];
 
 let activeRight = 'splash';
 let activeLeftTop = 'earthrise';
@@ -27,11 +27,11 @@ let activeLeftBottom = 'sunita';
 
 const starPositions = {
   'blog-star':       { top: 0.13, left: 0.797 },
-  'shrines-star':    { top: 0.18, left: 0.796 },
+  'works-star':    { top: 0.18, left: 0.796 },
   'curriculum-star': { top: 0.22, left: 0.794 },
   'now-star':        { top: 0.27, left: 0.795 },
   'about-star':      { top: 0.32, left: 0.792 },
-  'links-star':      { top: 0.37, left: 0.793 },
+  'contact-star':      { top: 0.37, left: 0.793 },
   'colophon-star':   { top: 0.42, left: 0.791 },
   'reset-star':      { top: 0.53, left: 0.795 }
 };
@@ -141,12 +141,12 @@ function revealLayer(layerName) {
     }
   });
 
-  // Animate TV and express-yourself only when shrines is active
+  // Animate TV and express-yourself only when works is active
   const tv = document.querySelector('.tv');
   const expressYourself = document.querySelector('.express-yourself');
   
   if (tv) {
-    if (activeRight === 'shrines') {
+    if (activeRight === 'works') {
       tv.classList.add('animate');
     } else {
       tv.classList.remove('animate');
@@ -154,7 +154,7 @@ function revealLayer(layerName) {
   }
   
   if (expressYourself) {
-    if (activeRight === 'shrines') {
+    if (activeRight === 'works') {
       expressYourself.classList.add('animate');
     } else {
       expressYourself.classList.remove('animate');
