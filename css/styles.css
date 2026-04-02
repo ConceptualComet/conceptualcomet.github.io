@@ -458,15 +458,15 @@ body {
   background-image: url(/img/shrines.png);
 }
 
-.tv {
+.bookpress {
   z-index: 8;
-  background-image: url(/img/tv.png);
+  background-image: url(/img/bookpress.png);
   animation: jerky-rock 0.5s steps(2) infinite;
   transform-origin: 70% 35%;
   animation-play-state: paused;
 }
 
-.tv.animate {
+.bookpress.animate {
   animation-play-state: running;
 }
 
