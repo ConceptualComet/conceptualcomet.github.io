@@ -141,15 +141,15 @@ function revealLayer(layerName) {
     }
   });
 
-  // Animate TV and express-yourself only when workshop is active
-  const tv = document.querySelector('.tv');
+  // Animate bookpress and express-yourself only when workshop is active
+  const bookpress = document.querySelector('.bookpress');
   const expressYourself = document.querySelector('.express-yourself');
   
-  if (tv) {
+  if (bookpress) {
     if (activeRight === 'workshop') {
-      tv.classList.add('animate');
+      bookpress.classList.add('animate');
     } else {
-      tv.classList.remove('animate');
+      bookpress.classList.remove('animate');
     }
   }
   
