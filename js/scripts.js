@@ -113,12 +113,16 @@ function revealLayer(layerName) {
   }
 
   // Show content for active layer on right side
-  rightContentAreas.forEach(area => {
-    const content = document.querySelector('.' + area + '-content');
-    if (content) {
-      content.style.display = area === activeRight ? 'block' : 'none';
+rightContentAreas.forEach(area => {
+  const content = document.querySelector('.' + area + '-content');
+  if (content) {
+    if (area === activeRight) {
+      content.style.display = area === 'curriculum' ? 'flex' : 'block';
+    } else {
+      content.style.display = 'none';
     }
-  });
+  }
+});
 
   const colophonDef = document.querySelector('.colophon-definition-content');
     if (colophonDef) {
